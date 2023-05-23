@@ -7,7 +7,7 @@ session_start();
 $admin = $_SESSION['admin'];
 
 if (!isset($admin)) {
-    header('location:login.php');
+  header('location:login.php');
 }
 
 ?>
@@ -313,10 +313,10 @@ if (!isset($admin)) {
                             </div>
                           </div>
                           <?php
-      $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
-      $select_profile->execute([$admin]);
-      $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-   ?>
+                          $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+                          $select_profile->execute([$admin]);
+                          $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+                          ?>
                           <div class="flex-grow-1">
                             <span class="fw-semibold d-block"><?= $fetch_profile['fullname']; ?></span>
                             <small class="text-muted"><?= $fetch_profile['role']; ?></small>
@@ -366,14 +366,15 @@ if (!isset($admin)) {
                     </li>
                   </ul>
                   <?php
-      $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
-      $select_profile->execute([$admin]);
-      $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-   ?>
+                  $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+                  $select_profile->execute([$admin]);
+                  $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+                  ?>
                   <div class="card mb-4">
                     <h5 class="card-header">Profile Details</h5>
                     <!-- Account -->
                     <div class="card-body">
+                    <h4><b><?= $fetch_profile['username']; ?></b></h4>
                     </div>
                     <hr class="my-0" />
                     <div class="card-body">

@@ -60,7 +60,7 @@ if (isset($_POST['search'])) {
                   <i class="bx bx-dots-vertical-rounded"></i>
                 </button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href=""><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                  <a class="dropdown-item" href="tryEditJournal.php?journal_id=<?=$row['journal_id']?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                 </div>
               </div>
             </td>
@@ -125,7 +125,7 @@ if (isset($_POST['search'])) {
                   <i class="bx bx-dots-vertical-rounded"></i>
                 </button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href=""><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                  <a class="dropdown-item" href="tryEditJournal.php?journal_id=<?=$row['journal_id']?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                 </div>
               </div>
             </td>

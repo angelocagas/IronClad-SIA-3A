@@ -46,11 +46,11 @@ $keyword = $_POST['keyword'];
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="updateuser.php?id=<?=$row['id']?>"><i
+                                <a class="dropdown-item" href="tryupdate.php?username=<?=$row['username']?>"><i
                                         class="bx bx-edit-alt me-1"></i> Edit</a>
-                                <a class="dropdown-item" href="deleteuser.php?id=<?=$row['id']?>"><i
-                                        class="bx bx-trash me-1"></i> Delete</a>
-
+                                <a class="dropdown-item" href="#" onclick="confirmDelete('<?=$row['username']?>')">
+                                    <i class="bx bx-trash me-1"></i> Delete
+                                </a>
                             </div>
                         </div>
                     </td>
@@ -101,11 +101,11 @@ $keyword = $_POST['keyword'];
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalCenter2"><i
+                                <a class="dropdown-item" href="tryupdate.php?username=<?=$row['username']?>"><i
                                         class="bx bx-edit-alt me-1"></i> Edit</a>
-                                <a class="dropdown-item" href="deleteuser.php?username=<?=$row['username']?>"><i
-                                        class="bx bx-trash me-1"></i> Delete</a>
-
+                                <a class="dropdown-item" href="#" onclick="confirmDelete('<?=$row['username']?>')">
+                                    <i class="bx bx-trash me-1"></i> Delete
+                                </a>
                             </div>
                         </div>
                     </td>
@@ -122,71 +122,3 @@ $keyword = $_POST['keyword'];
 <?php
 }
 ?>
-<?php
-
-$select_profile = $conn->prepare("SELECT * FROM `users` WHERE username = ?");
-$select_profile->execute([$username]);
-$fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-
-?>
-        <form action="updateuser.php" method="post">
-            <!-- Modal -->
-            <div class="modal fade" id="modalCenter2" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalCenterTitle">Edit User</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" placeholder="" name="fullname" />
-                                        <input type="hidden" name="id" value="<?php echo $user['id']; ?>" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <class="form-label">Username</label>
-                                        <input type="text" class="form-control"
-                                            placeholder="Please double check the username, it will show an error if the username does not match."
-                                            name="username" value="" required />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <class="form-label">Password</label>
-                                        <input type="password" class="form-control" placeholder="****" name="pass"
-                                            required />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <class="form-label">Confirm Password</label>
-                                        <input type="password" class="form-control" placeholder="****" name="cpass"
-                                            required />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-3">
-                                <label for="nameWithTitle" class="form-label">Role</label>
-                                <select id="role" class="select2 form-select" name="role" required>
-                                    <option>Select Role</option>  
-                              <option value="admin">Admin</option>
-                              <option value="user">User</option>
-                            </select>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                Close
-                            </button>
-                            <button type="submit" class="btn btn-primary" name="submit">Edit User</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-</form>

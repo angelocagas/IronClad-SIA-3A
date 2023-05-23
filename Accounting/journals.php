@@ -469,9 +469,9 @@ if (!isset($admin)) {
                                  <div class="row">
                                   <div class="col mb-3">
                                   <div>
-                        <label for="description" class="form-label" >Description</label>
-                        <textarea class="form-control" id="description" rows="5" name="description"></textarea>
-                      </div>
+                                  <label for="description" class="form-label" >Description</label>
+                                  <textarea class="form-control" id="description" rows="5" name="description"></textarea>
+                                  </div>
                               </div>
                               </div>
                               </div>

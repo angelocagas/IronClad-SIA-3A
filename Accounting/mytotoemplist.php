@@ -161,13 +161,13 @@ if (!isset($admin)) {
                 <div data-i18n="Analytics">Time On/Time Off</div>
               </a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item active">
               <a href="mytotoemplist.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
                 <div data-i18n="Analytics">Employees</div>
               </a>
             </li>
-            <li class="menu-item active">
+            <li class="menu-item">
               <a href="mytotolog.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-history"></i>
                 <div data-i18n="Analytics">History Log</div>
@@ -221,41 +221,37 @@ if (!isset($admin)) {
           <div class="content-wrapper">
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>MyToTo History Log</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Employees</h4>
               <form method=POST action="">
-                <div class="mb-3 row">
-                        <label for="html5-date-input" class="col-md-2 col-form-label">Select Date</label>
-                        <div class="col-md-10">
-                          <input class="form-control" type="date" value="<?php echo isset($_POST['ondate']) ? $_POST['ondate'] : '' ?>" id="html5-date-input" name="ondate" required/>
-                        </div>
-                      </div>
-                      <div class="mb-3 row">
-                        <label for="html5-text-input" class="col-md-2 col-form-label">Employee</label>
-                        <div class="col-md-10">
-                        <select id="defaultSelect" class="form-select" name="username" value="<?php echo isset($_POST['user']) ? $_POST['user'] : '' ?>" required>
-                                    <option>Select Employee Username</option>
+              <div class="row">
+                                  <div class="col mb-3">
+                                   <div class="mb-3">
+                                    <label for="defaultSelect" class="form-label">Department</label>
+                                    <select id="defaultSelect" class="form-select" name="department" value="<?php echo isset($_POST['dept']) ? $_POST['dept'] : '' ?>">
+                                    <option>Select Department</option>
                                     <?php
 
-                                    $accounts = $conn->prepare("select distinct `username` from `salary`;");
+                                    $accounts = $conn->prepare("select distinct `department` from `salary`;");
                                     $accounts->execute();
                                     $acc = $accounts->fetchAll();
 
                                     foreach ($acc as $row) : ?>
-                                    <option><?= $row["username"] ?></option>
+                                    <option><?= $row["department"] ?></option>
                                     <?php endforeach ?>
                                     </select>
-                        </div>
-                      </div>
+                                   </div>
+                                  </div>
+                                  </div>
                       <div class="btn-group" role="group">
-                              <button class="btn btn-secondary" name="goto">Filter Employee Punches</button>
-                              <a href="mytotolog.php" type="button" class="btn btn-secondary" >Clear</a>
+                              <button class="btn btn-secondary" name="show">Show List</button>
+                              <a href="mytotoemplist.php" type="button" class="btn btn-secondary" >Clear</a>
                       </div>
               </form>  
 
                       <br></br>
                     <?php
 
-                    include 'mytotologsum.php';
+                    include 'mytotoempsum.php';
                     ?>
                     </tbody>
                   </table>

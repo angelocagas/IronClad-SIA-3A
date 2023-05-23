@@ -1,6 +1,8 @@
 <?php
 include 'connect.php';
 
+session_start();
+
 $admin = $_SESSION['admin'];
 
 if (!isset($admin)) {
@@ -20,37 +22,36 @@ if (isset($_POST['submit'])) {
     $cpass = filter_var($cpass);
     $role = $_POST['role'];
     $role = filter_var($role);
+    $phone = ($_POST['phone']);
+    $phone = filter_var($phone);
+    $address = $_POST['address'];
+    $address = filter_var($address);
 
     $id = $_POST['id'];
     if (!$id) {
         die("ID not found");
     }
 
-    $select = $conn->prepare("SELECT * FROM `users` WHERE username = ? AND id != ?");
-    $select->execute([$username, $id]);
+    $select = $conn->prepare("SELECT * FROM `users` WHERE username = ?");
+    $select->execute([$username]);
 
-    if ($select->rowCount() == 0) {
-        echo "<script> alert('Invalid username. Please try again.');
-
-            </script>";
+    $user = $select->fetch(PDO::FETCH_ASSOC);
+    if ($pass != $cpass) {
+        echo "<script> alert('Password does not match. Please try again.'); window.location.href = 'tryupdate.php?username=" . urlencode($username) . "'; </script>";
     } else {
-        $user = $select->fetch(PDO::FETCH_ASSOC);
-        if ($pass != $cpass) {
-            echo "<script> alert('Password does not match. Please try again.'); </script>";
-        } else {
 
-            $update = $conn->prepare("UPDATE `users` SET fullname=?, password=?, role=? WHERE id=?");
-            $update->execute([$fullname, $cpass, $role, $user['id']]);
+        $update = $conn->prepare("UPDATE `users` SET fullname=?, password=?, role=?, phone=?, address=? WHERE id=?");
+        $update->execute([$fullname, $cpass, $role, $phone, $address, $user['id']]);
 
-            $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
-            $select_profile->execute([$admin]);
-            $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+        $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+        $select_profile->execute([$admin]);
+        $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
 
-            $auditlogin = $conn->prepare("INSERT INTO `audit`(role, username, action) VALUES(?,?,?)");
-            $auditlogin->execute(["admin", $fetch_profile['username'], "edit user"]);
+        $auditlogin = $conn->prepare("INSERT INTO `audit`(role, username, action) VALUES(?,?,?)");
+        $auditlogin->execute(["admin", $fetch_profile['username'], "edit user"]);
 
-            header('location: userlist.php');
-        }
+        echo "<script>alert('Edit successfully.'); window.location.href = 'userlist.php';</script>";
+
     }
 
 }
@@ -65,7 +66,7 @@ if (isset($_POST['submit'])) {
         <title>Document</title>
     </head>
 
-    <body onload="myFunction()">
+    <body>
 
         <script>
         function myFunction() {

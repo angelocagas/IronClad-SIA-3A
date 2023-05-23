@@ -28,12 +28,11 @@ if (isset($_POST['search'])) {
         $fromdate = $_POST['fromdate'];
         $todate = $_POST['todate'];
         $query = $conn->prepare("SELECT * FROM `journal` where `account` LIKE 'dispatch' and `type` LIKE 'credit' and `date` between '$fromdate' and '$todate' ORDER BY `date` ASC");
-        $row_count = 1;
         $query->execute();
         while ($row = $query->fetch()) { ?>
           <tr>
             <td>
-              <?php echo $row_count ?>
+              <?= $row['journal_id'] ?>
             </td>
             <td>
               <?= $row['date'] ?>
@@ -55,7 +54,6 @@ if (isset($_POST['search'])) {
             </td>
           </tr>
           <?php
-          $row_count++;
         }
         ?>
       </tbody>
@@ -88,7 +86,7 @@ if (isset($_POST['search'])) {
         while ($row = $result->fetch()) { ?>
           <tr>
             <td>
-              <?php echo $row_count ?>
+              <?= $row['journal_id'] ?>
             </td>
             <td>
               <?= $row['date'] ?>
@@ -110,7 +108,6 @@ if (isset($_POST['search'])) {
             </td>
           </tr>
           <?php
-          $row_count++;
         }
         ?>
       </tbody>

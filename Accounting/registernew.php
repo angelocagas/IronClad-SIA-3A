@@ -11,7 +11,7 @@ if (!isset($admin)) {
 
 if (isset($_POST['submit'])) {
 
-    $empid = $_POST['emp_id'];
+    $empid = $_POST['empid'];
     $empid = filter_var($empid);
     $fullname = $_POST['fullname'];
     $fullname = filter_var($fullname);

@@ -4,11 +4,11 @@ include 'connect.php';
 $admin = $_SESSION['admin'];
 
 if (!isset($admin)) {
-    header('location:login.php');
+  header('location:login.php');
 }
 
 if (isset($_POST['search'])) {
-  ?>
+?>
 
   <div class="table-responsive text-nowrap">
     <table class="table table-hover">
@@ -28,12 +28,11 @@ if (isset($_POST['search'])) {
         $fromdate = $_POST['fromdate'];
         $todate = $_POST['todate'];
         $query = $conn->prepare("SELECT * FROM `journal` where `account` LIKE 'maintenance' and `type` LIKE 'credit' and `date` between '$fromdate' and '$todate' ORDER BY `date` ASC");
-        $row_count = 1;
         $query->execute();
         while ($row = $query->fetch()) { ?>
           <tr>
             <td>
-              <?php echo $row_count ?>
+              <?= $row['journal_id'] ?>
             </td>
             <td>
               <?= $row['date'] ?>
@@ -54,17 +53,16 @@ if (isset($_POST['search'])) {
               <?= $row['description'] ?>
             </td>
           </tr>
-          <?php
-          $row_count++;
+        <?php
         }
         ?>
       </tbody>
     </table>
   </div>
 
-  <?php
+<?php
 } else {
-  ?>
+?>
   <div class="table-responsive text-nowrap">
     <table class="table table-hover">
       <thead>
@@ -84,11 +82,10 @@ if (isset($_POST['search'])) {
         $sql = "SELECT * FROM `journal` WHERE `account` LIKE 'maintenance' and `type` LIKE 'credit' ORDER BY `date` ASC";
         $result = $conn->prepare($sql);
         $result->execute();
-        $row_count = 1;
         while ($row = $result->fetch()) { ?>
           <tr>
             <td>
-              <?php echo $row_count ?>
+              <?= $row['journal_id'] ?>
             </td>
             <td>
               <?= $row['date'] ?>
@@ -109,13 +106,12 @@ if (isset($_POST['search'])) {
               <?= $row['description'] ?>
             </td>
           </tr>
-          <?php
-          $row_count++;
+        <?php
         }
         ?>
       </tbody>
     </table>
   </div>
-  <?php
+<?php
 }
 ?>

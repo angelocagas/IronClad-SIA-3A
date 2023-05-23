@@ -17,25 +17,15 @@ if(isset($_POST['submit'])){
 
    if($select->rowCount() > 0){
 
-      if(($row['role'] == 'admin' && $row['department'] == 'Accounting')){
+      if($row['role'] == 'admin'){
 
          $_SESSION['admin'] = $row['id'];
          $auditlogin = $conn->prepare("INSERT INTO `audit`(role, username, action) VALUES(?,?,?)");
          $auditlogin->execute(["admin", $row['username'], "login"]);
          header('location:dashboard.php');
-
-      }else if(($row['role'] == 'admin' && $row['department'] == 'Dispatch')) {
-        $_SESSION['admin'] = $row['id'];
-         header('location:dispatchdashboard.php');
-      }else if(($row['role'] == 'admin' && $row['department'] == 'Maintenance')) {
-        $_SESSION['admin'] = $row['id'];
-        header('location:maintenancedashboard.php');
-    }
-      
-   }else{
-      $message[] = 'incorrect email or password!';
    }
   }
+}
 ?>
 
 <!DOCTYPE html>

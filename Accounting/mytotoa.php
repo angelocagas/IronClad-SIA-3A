@@ -7,7 +7,7 @@ session_start();
 $admin = $_SESSION['admin'];
 
 if (!isset($admin)) {
-    header('location:dashboard.php');
+  header('location:dashboard.php');
 }
 
 ?>
@@ -162,15 +162,15 @@ if (!isset($admin)) {
               </a>
             </li>
             <li class="menu-item">
-              <a href="mytotoleaves.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-git-pull-request"></i>
-                <div data-i18n="Analytics">Leave Requests</div>
+              <a href="mytotoemplist.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
+                <div data-i18n="Analytics">Employees</div>
               </a>
             </li>
             <li class="menu-item">
               <a href="mytotolog.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-history"></i>
-                <div data-i18n="Analytics">My History Log</div>
+                <div data-i18n="Analytics">History Log</div>
               </a>
             </li>
             <!-- Reports -->
@@ -213,17 +213,17 @@ if (!isset($admin)) {
 
           <!-- / Navbar -->
           <?php
-      $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
-      $select_profile->execute([$admin]);
-      $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-   ?>
+          $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+          $select_profile->execute([$admin]);
+          $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+          ?>
           <!-- Content wrapper -->
           <form action="mytotopunches.php" method="post"> 
           <div class="content-wrapper">
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>My Time On/Time Off</h4>
-              <div class="mb-3 row">
+                        <div class="mb-3 row">
                         <label for="html5-date-input" class="col-md-2 col-form-label">Date</label>
                         <div class="col-md-10">
                           <input
@@ -276,8 +276,7 @@ if (!isset($admin)) {
                     $sql = ("SELECT * FROM `mytoto` WHERE `username` = '$name' and `date` = CURRENT_DATE()");
                     $result = $conn->prepare($sql);
                     $result->execute();
-                    $row_count= 1;
-                    while($row = $result->fetch()){?>
+                    while ($row = $result->fetch()) { ?>
                                 <tr>
                                     <td><?= $row['date'] ?></td>
                                     <td><?= $row['time'] ?></td>
@@ -285,9 +284,8 @@ if (!isset($admin)) {
                                     <td><?= $row['username'] ?></td>
                                 </tr>
                                 <?php
-                                $row_count++;
-				}
-			?>
+                              }
+                                ?>
                     </tbody>
                   </table>
                 </div>

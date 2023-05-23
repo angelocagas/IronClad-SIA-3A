@@ -212,7 +212,7 @@ if (!isset($admin)) {
               </a>
               <ul class="menu-sub">
               <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
+                  <a href="accsummary.php" class="menu-link">
                     <div data-i18n="Without navbar">Accounting</div>
                   </a>
                 </li>

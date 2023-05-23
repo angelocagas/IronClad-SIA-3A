@@ -335,7 +335,7 @@ if (!isset($admin)) {
                           $select_profile->execute([$admin]);
                           $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
 
-                          $select_id = $conn->prepare("SELECT * FROM `users` ORDER BY `emp_id` DESC LIMIT 1");
+                          $select_id = $conn->prepare("SELECT * FROM `users` where `department` = 'accounting' ORDER BY `emp_id` DESC LIMIT 1");
                           $select_id->execute();
                           $fetch_id = $select_id->fetch(PDO::FETCH_ASSOC);
                           ?>
@@ -388,7 +388,7 @@ if (!isset($admin)) {
                           class="btn btn-primary"
                           data-bs-toggle="modal"
                           data-bs-target="#modalCenter"
-                        ><i class='bx bx-plus' ></i> Add User
+                        ><i class='bx bx-plus'></i> Add User
                         </button>
                         <a href="resetpwlist.php" type="button" class="btn btn-warning"><span class="badge badge-center rounded-pill bg-danger" >
                           <?php $pwreq = $conn->query("SELECT COUNT(*) from `reset`")->fetchColumn();
@@ -405,6 +405,7 @@ if (!isset($admin)) {
                                   class="btn-close"
                                   data-bs-dismiss="modal"
                                   aria-label="Close"
+                                  required
                                 ></button>
                               </div>
                               <div class="modal-body">
@@ -430,6 +431,7 @@ if (!isset($admin)) {
                                       class="form-control"
                                       placeholder=""
                                       name="fullname"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -441,6 +443,7 @@ if (!isset($admin)) {
                                       class="form-control"
                                       placeholder="First Name's Initial + Complete Last Name"
                                       name="username"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -452,6 +455,7 @@ if (!isset($admin)) {
                                       class="form-control"
                                       placeholder="****"
                                       name="pass"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -463,16 +467,17 @@ if (!isset($admin)) {
                                       class="form-control"
                                       placeholder="****"
                                       name="cpass"
+                                      required
                                     />
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="nameWithTitle" class="form-label">Role</label>
-                                    <select id="role" class="select2 form-select" name="role">
+                                    <select id="role" class="select2 form-select" name="role" required>
                                     <option>Select Role</option>  
                                     <option value="admin">Admin</option>
-                                    <option value="user">User</option>
+                                    <option value="user">User</option>  
                                     </select>
                                   </div>
                                 </div>
@@ -497,6 +502,7 @@ if (!isset($admin)) {
                                       class="form-control"
                                       placeholder="username@ironclad.ph"
                                       name="email"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -509,6 +515,7 @@ if (!isset($admin)) {
                                       class="form-control"
                                       placeholder="9#########"
                                       name="phone"
+                                      required
                                     />
                                   </div>
                                 </div>
