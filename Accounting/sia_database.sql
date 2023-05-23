@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2023 at 01:26 AM
+-- Generation Time: May 23, 2023 at 05:19 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -371,7 +371,58 @@ INSERT INTO `audit` (`audit_id`, `role`, `username`, `action`, `timestamp`) VALU
 (340, 'admin', 'dbillones', 'logout', '2023-05-22 10:39:48'),
 (341, 'admin', 'jcanencia', 'login', '2023-05-22 10:47:00'),
 (342, 'admin', 'jcanencia', 'mytoto login', '2023-05-22 10:47:04'),
-(343, 'admin', 'jcanencia', 'mytoto logout', '2023-05-22 10:47:16');
+(343, 'admin', 'jcanencia', 'mytoto logout', '2023-05-22 10:47:16'),
+(344, 'admin', 'mmanugue', 'login', '2023-05-22 23:29:05'),
+(345, 'admin', 'mmanugue', 'logout', '2023-05-22 23:29:54'),
+(346, 'admin', 'mmanugue', 'login', '2023-05-22 23:30:04'),
+(347, 'admin', 'mmanugue', 'edit user', '2023-05-22 23:30:32'),
+(348, 'admin', 'mmanugue', 'delete user', '2023-05-22 23:32:19'),
+(349, 'admin', 'mmanugue', 'login', '2023-05-22 23:42:15'),
+(350, 'admin', 'mmanugue', 'edit journal', '2023-05-22 23:58:23'),
+(351, 'admin', 'mmanugue', 'edit journal', '2023-05-23 00:07:22'),
+(352, 'admin', 'mmanugue', 'edit journal', '2023-05-23 00:07:45'),
+(353, 'admin', 'mmanugue', 'edit journal', '2023-05-23 00:15:37'),
+(354, 'admin', 'mmanugue', 'edit journal', '2023-05-23 00:21:07'),
+(355, 'admin', 'mmanugue', 'edit journal', '2023-05-23 00:23:11'),
+(356, 'admin', 'mmanugue', 'edit journal', '2023-05-23 00:23:32'),
+(357, 'admin', 'mmanugue', 'add user', '2023-05-23 00:31:27'),
+(358, 'admin', 'mmanugue', 'add user', '2023-05-23 00:33:55'),
+(359, 'admin', 'mmanugue', 'add user', '2023-05-23 00:35:55'),
+(360, 'admin', 'mmanugue', 'logout', '2023-05-23 00:36:22'),
+(361, 'admin', 'chill', 'login', '2023-05-23 00:36:28'),
+(362, 'admin', 'chill', 'edit user', '2023-05-23 00:57:05'),
+(363, 'admin', 'chill', 'edit user', '2023-05-23 00:57:26'),
+(364, 'admin', 'mmanugue', 'login', '2023-05-23 01:47:04'),
+(365, 'admin', 'mmanugue', 'logout', '2023-05-23 03:15:52'),
+(366, 'admin', 'chill', 'login', '2023-05-23 03:15:55'),
+(367, 'admin', 'chill', 'edit user', '2023-05-23 03:49:44'),
+(368, 'admin', 'chill', 'logout', '2023-05-23 03:49:52'),
+(369, 'admin', 'atabanao', 'login', '2023-05-23 03:50:00'),
+(370, 'admin', 'atabanao', 'edit user', '2023-05-23 03:53:53'),
+(371, 'admin', 'atabanao', 'logout', '2023-05-23 03:54:04'),
+(372, 'admin', 'dbillones', 'login', '2023-05-23 03:54:08'),
+(373, 'admin', 'dbillones', 'mytoto login', '2023-05-23 04:03:42'),
+(374, 'admin', 'mmanugue', 'login', '2023-05-23 11:47:49'),
+(375, 'admin', 'mmanugue', 'mytoto login', '2023-05-23 11:47:52'),
+(376, 'admin', 'mmanugue', 'mytoto logout', '2023-05-23 13:39:00'),
+(377, 'admin', 'mmanugue', 'mytoto login', '2023-05-23 13:39:05'),
+(378, 'admin', 'mmanugue', 'mytoto logout', '2023-05-23 13:39:06'),
+(379, 'admin', 'mmanugue', 'mytoto login', '2023-05-23 13:41:58'),
+(380, 'admin', 'mmanugue', 'mytoto logout', '2023-05-23 13:57:25'),
+(381, 'admin', 'mmanugue', 'login', '2023-05-23 14:05:35'),
+(382, 'admin', 'mmanugue', 'mytoto login', '2023-05-23 14:05:38'),
+(383, 'admin', 'mmanugue', 'mytoto logout', '2023-05-23 14:06:18'),
+(384, 'admin', 'mmanugue', 'logout', '2023-05-23 14:49:14'),
+(385, 'admin', 'mmanugue', 'login', '2023-05-23 14:49:40'),
+(386, 'admin', 'mmanugue', 'logout', '2023-05-23 14:49:43'),
+(387, 'admin', 'mmanugue', 'login', '2023-05-23 14:49:58'),
+(388, 'admin', 'mmanugue', 'reset another user\'s password', '2023-05-23 14:50:10'),
+(389, 'admin', 'mmanugue', 'reset another user\'s password', '2023-05-23 14:50:39'),
+(390, 'admin', 'mmanugue', 'add user', '2023-05-23 14:52:28'),
+(391, 'admin', 'mmanugue', 'edit journal', '2023-05-23 14:54:07'),
+(392, 'admin', 'mmanugue', 'mytoto login', '2023-05-23 14:59:31'),
+(393, 'admin', 'mmanugue', 'mytoto logout', '2023-05-23 15:02:20'),
+(394, 'admin', 'mmanugue', 'logout', '2023-05-23 15:03:34');
 
 -- --------------------------------------------------------
 
@@ -394,8 +445,8 @@ CREATE TABLE `journal` (
 --
 
 INSERT INTO `journal` (`journal_id`, `date`, `account`, `amount`, `type`, `encoder`, `description`) VALUES
-(1, '2023-05-21', 'Accounting', 12313, 'Credit', 'dbillones', 'testing journal id numbering'),
-(2, '2023-05-06', 'Accounting', 213984, 'credit', 'mmanugue', 'test'),
+(1, '2023-05-21', 'Accounting', 50000, 'Credit', 'dbillones', 'This is a test on the edit function'),
+(2, '2023-05-06', 'Accounting', 213984, 'Credit', 'mmanugue', 'test'),
 (4, '2023-04-16', 'Dispatch', 1000000000, 'Credit', 'mmanugue', 'This is the final test'),
 (5, '2023-04-16', 'Rental and Sales', 5000, 'Debit', 'ccagas', 'This is a test'),
 (6, '2023-04-17', 'Accounting', 10000000, 'Credit', 'mmanugue', 'this is another test'),
@@ -541,7 +592,22 @@ INSERT INTO `mytoto` (`id`, `date`, `time`, `activity`, `username`) VALUES
 (107, '2023-05-22', '18:38:45', 'Time On', 'dbillones'),
 (108, '2023-05-22', '18:38:47', 'Break', 'dbillones'),
 (109, '2023-05-22', '18:38:50', 'Time On', 'dbillones'),
-(110, '2023-05-22', '18:38:52', 'Time Off', 'dbillones');
+(110, '2023-05-22', '18:38:52', 'Time Off', 'dbillones'),
+(111, '2023-05-23', '12:11:07', 'Time On', 'dbillones'),
+(112, '2023-05-23', '12:11:10', 'Break', 'dbillones'),
+(113, '2023-05-23', '12:11:11', 'Time On', 'dbillones'),
+(114, '2023-05-23', '12:11:13', 'Lunch', 'dbillones'),
+(115, '2023-05-23', '12:11:14', 'Time On', 'dbillones'),
+(116, '2023-05-23', '12:11:16', 'Coaching', 'dbillones'),
+(117, '2023-05-23', '12:11:17', 'Extracurricular', 'dbillones'),
+(118, '2023-05-23', '12:11:19', 'Break', 'dbillones'),
+(119, '2023-05-23', '12:11:21', 'Time On', 'dbillones'),
+(120, '2023-05-23', '12:11:23', 'Time Off', 'dbillones'),
+(121, '2023-05-23', '19:47:54', 'Time On', 'mmanugue'),
+(122, '2023-05-23', '19:47:56', 'Break', 'mmanugue'),
+(123, '2023-05-23', '19:47:58', 'Lunch', 'mmanugue'),
+(124, '2023-05-23', '19:48:02', 'Break', 'mmanugue'),
+(125, '2023-05-23', '19:48:03', 'Time Off', 'mmanugue');
 
 -- --------------------------------------------------------
 
@@ -596,6 +662,40 @@ CREATE TABLE `reset` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `salary`
+--
+
+CREATE TABLE `salary` (
+  `salary_id` int(100) NOT NULL,
+  `emp_id` int(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `department` varchar(100) NOT NULL,
+  `position` varchar(100) NOT NULL,
+  `annual_salary` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `salary`
+--
+
+INSERT INTO `salary` (`salary_id`, `emp_id`, `username`, `fullname`, `department`, `position`, `annual_salary`) VALUES
+(1, 2023001, 'mmanugue', 'Mark Manugue', 'Accounting', 'Chief Financial Officer', '2000000'),
+(2, 2023002, 'atabanao', 'Arjelica Rhoede Tabanao', 'Accounting', 'Accounting Manager', '1750000'),
+(3, 2023003, 'dbillones', 'Dianne Billones', 'Accounting', 'Assistant Controller', '1500000'),
+(4, 2023004, 'jcanencia', 'Juli Mae Canencia', 'Accounting', 'Financial Analyst', '1250000'),
+(5, 2023005, 'ccagas', 'Christian Angelo Cagas', 'Accounting', 'Senior Accountant', '1500000'),
+(6, 2023006, 'nesguerra', 'Nikka Virginia Esguerra', 'Accounting', 'Budget Analyst', '750000'),
+(7, 2023007, 'chill', 'Charish Hill', 'Accounting', 'Bookkeeper', '600000'),
+(8, 2023008, 'mdayao', 'Marinel Dayao', 'Accounting', 'Clerk', '500000'),
+(9, 2023100, 'adejesus', 'Archie De Jesus', 'Dispatch', 'Admin', '1750000'),
+(10, 2023200, 'ggarcia', 'Gilbert Garcia', 'Maintenance', 'Admin', '1750000'),
+(11, 2023300, 'jbalaoro', 'Joshua Balaoro', 'Equipment Lifecycle', 'Admin', '1750000'),
+(12, 2023400, 'rregala', 'Russel Kenneth Regala', 'Sales and Rentals', 'Admin', '1750000');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -609,7 +709,7 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   `department` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
-  `address` varchar(100) NOT NULL
+  `address` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -617,14 +717,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `emp_id`, `fullname`, `username`, `password`, `role`, `email`, `department`, `phone`, `address`) VALUES
-(1, 2023001, 'Mark Manugue', 'mmanugue', '1234', 'admin', 'mmanugue@ironclad.ph', 'Accounting', '9175456559', 'Block 100, Lot 8, Bulaon Resettlement, Bulaon, City of San Fernando, Pampanga'),
+(1, 2023001, 'Mark Manugue', 'mmanugue', '1234', 'admin', 'mmanugue@ironclad.ph', 'Accounting', '9175456559', 'Bulaon Resettlement, Pampanga'),
 (12, 2023002, 'Arjelica Rhoede Tabanao', 'atabanao', '1234', 'admin', 'atabanao@ironclad.ph', 'Accounting', '9175456560', 'Paco, Manila'),
 (17, 2023003, 'Dianne Billones', 'dbillones', '1234', 'admin', 'dbillones@ironclad.ph', 'Accounting', '9175456561', 'Ayala Center, Makati'),
 (22, 2023004, 'Juli Mae Canencia', 'jcanencia', '1234', 'admin', 'jcanencia@ironclad.ph', 'Accounting', '9175456562', 'Ayala Center, Makati'),
 (26, 2023005, 'Christian Angelo Cagas', 'ccagas', '1234', 'admin', 'ccagas@ironclad.ph', 'Accounting', '9175456563', 'Pampanga'),
-(27, 2023006, 'Marinel Dayao', 'mdayao', '1234', 'admin', 'mdayao@ironclad.ph', 'Accounting', '9175456564', 'Pasay City'),
 (28, 2023100, 'Archie De Jesus', 'adejesus', '1234', 'admin', 'adejesus@ironclad.ph', 'Dispatch', '665165161', 'Pampanga'),
-(30, 2023200, 'Gilbert Garcia', 'ggarcia', '1234', 'admin', 'ggarcia@ironclad.ph', 'Maintenance', '65196161', 'Pampanga');
+(30, 2023200, 'Gilbert Garcia', 'ggarcia', '1234', 'admin', 'ggarcia@ironclad.ph', 'Maintenance', '65196161', 'Pampanga'),
+(31, 2023006, 'Nikka Virginia Esguerra', 'nesguerra', '1234', 'admin', 'nesguerra@ironclad.ph', 'Accounting', '9175456564', 'Quezon City'),
+(32, 2023007, 'Charish Hill', 'chill', '1234', 'admin', 'chill@ironclad.ph', 'Accounting', '9175456565', 'Makati City'),
+(33, 2023008, 'Marinel Dayao', 'mdayao', '1234', 'admin', 'mdayao@ironclad.ph', 'Accounting', '9175456566', 'Pasay City'),
+(34, 2023009, 'Lesley Anne Ferrer', 'lferrer', '1234', 'admin', 'lferrer@ironclad.ph', 'Accounting', '9175456567', 'Marikina City');
 
 --
 -- Indexes for dumped tables
@@ -661,6 +764,12 @@ ALTER TABLE `reset`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `salary`
+--
+ALTER TABLE `salary`
+  ADD PRIMARY KEY (`salary_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -674,7 +783,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `audit`
 --
 ALTER TABLE `audit`
-  MODIFY `audit_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=344;
+  MODIFY `audit_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=395;
 
 --
 -- AUTO_INCREMENT for table `journal`
@@ -686,7 +795,7 @@ ALTER TABLE `journal`
 -- AUTO_INCREMENT for table `mytoto`
 --
 ALTER TABLE `mytoto`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT for table `requests`
@@ -698,13 +807,19 @@ ALTER TABLE `requests`
 -- AUTO_INCREMENT for table `reset`
 --
 ALTER TABLE `reset`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `salary`
+--
+ALTER TABLE `salary`
+  MODIFY `salary_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
