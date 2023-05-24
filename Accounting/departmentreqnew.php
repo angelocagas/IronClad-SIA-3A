@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 //    $auditlogin->execute(["admin", $fetch_profile['username'], "add new fund request"]);
 // end of audit trail
 
-    header('location: accountingreq.php');
+    header('location: departmentreq.php');
 
 }
 

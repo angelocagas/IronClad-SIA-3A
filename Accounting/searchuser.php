@@ -48,7 +48,7 @@ $keyword = $_POST['keyword'];
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="tryupdate.php?username=<?=$row['username']?>"><i
                                         class="bx bx-edit-alt me-1"></i> Edit</a>
-                                <a class="dropdown-item" href="#" onclick="confirmDelete('<?=$row['username']?>')">
+                                <a class="dropdown-item" href="deleteuser.php?username=<?=$row['username']?>" onclick="confirmDelete('<?=$row['username']?>')">
                                     <i class="bx bx-trash me-1"></i> Delete
                                 </a>
                             </div>
@@ -103,7 +103,7 @@ $keyword = $_POST['keyword'];
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="tryupdate.php?username=<?=$row['username']?>"><i
                                         class="bx bx-edit-alt me-1"></i> Edit</a>
-                                <a class="dropdown-item" href="#" onclick="confirmDelete('<?=$row['username']?>')">
+                                <a class="dropdown-item" href="deleteuser.php?username=<?=$row['username']?>" onclick="confirmDelete('<?=$row['username']?>')">
                                     <i class="bx bx-trash me-1"></i> Delete
                                 </a>
                             </div>
