@@ -141,7 +141,7 @@ if (!isset($admin)) {
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Accounting</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -212,7 +212,7 @@ if (!isset($admin)) {
               </a>
               <ul class="menu-sub">
               <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
+                  <a href="accsummary.php" class="menu-link">
                     <div data-i18n="Without navbar">Accounting</div>
                   </a>
                 </li>
@@ -355,13 +355,11 @@ if (!isset($admin)) {
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>"Department Name Here" Pending Requests</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Accounting Department Pending Requests</h4>
 
-<!-- you can change the name of the page if you want to -->
-
-              <form action="departmentreqnew.php" method="post">
-                                  <!-- Vertically Centered Modal -->
-                                  <div class="col-lg-4 col-md-6">
+              <form action="accountingnew.php" method="post">
+                  <!-- Vertically Centered Modal -->
+                    <div class="col-lg-4 col-md-6">
                       <div class="mt-3">
                         <!-- Button trigger modal -->
                         <button
@@ -369,14 +367,17 @@ if (!isset($admin)) {
                           class="btn btn-primary"
                           data-bs-toggle="modal"
                           data-bs-target="#modalCenter4"
-                        >
+                        ><i class='bx bx-plus'></i>
                           Add a Request
                         </button>
                         <?php
-                        // please change database information to match yours                  
                         $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
                         $select_profile->execute([$admin]);
                         $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+
+                        $select_req = $conn->prepare("SELECT * FROM `requests` ORDER BY `req_id` DESC LIMIT 1");
+                        $select_req->execute();
+                        $fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
                         ?>
                         <!-- Modal -->
                         <div class="modal fade" id="modalCenter4" tabindex="-1" aria-hidden="true">
@@ -392,12 +393,20 @@ if (!isset($admin)) {
                                 ></button>
                               </div>
                               <div class="modal-body">
+                              <div class="row">
+                                <div class="mb-3">
+                                  <label for="encoder" class="form-label">Request ID</label>
+                                    <div class="col-md-12">
+                                    <input class="form-control" type="text" value="<?= $fetch_req['req_id'] + 1; ?>" id="reqid" name="reqid" readonly/>
+                                    </div>
+                                 </div>
+                                </div>
                                 <div class="row">
                                 <div class="col mb-3">
                                    <div class="mb-3">
                                   <label for="html5-date-input" class="form-label">Date</label>
                                     <div class="col-md-12">
-                                    <input class="form-control" type="date" value="<?php echo date("Y-m-d"); ?>" id="html5-date-input" name="date" required/>
+                                    <input class="form-control" type="date" value="<?php echo date("Y-m-d"); ?>" id="html5-date-input" name="date"/>
                                     </div>
                                  </div>
                                  </div>
@@ -406,13 +415,13 @@ if (!isset($admin)) {
                                  <div class="col mb-3">
                                    <div class="mb-3">
                                     <label for="account" class="form-label">Account</label>
-                                    <select id="account" class="form-select" name="account" required>
+                                    <select id="account" class="form-select" name="account">
                                     <option>Select Type</option>
                                     <option value="Accounting">Accounting</option>
-                                    <option value="Dispatch" >Dispatch</option>
-                                    <option value="Equipment Lifecycle" >Equipment Lifecycle</option>
-                                    <option value="Maintenance" >Maintenance</option>
-                                    <option value="Rental and Sales" >Rental and Sales</option>
+                                    <option value="Dispatch" disabled>Dispatch</option>
+                                    <option value="Equipment Lifecycle" disabled>Equipment Lifecycle</option>
+                                    <option value="Maintenance" disabled>Maintenance</option>
+                                    <option value="Rental and Sales" disabled>Rental and Sales</option>
                                     </select>
                                    </div>
                                   </div>
@@ -421,7 +430,7 @@ if (!isset($admin)) {
                                 <div class="mb-3">
                                   <label for="amount" class="form-label">Amount</label>
                                     <div class="col-md-12">
-                                    <input class="form-control" type="number" value="" placeholder="Amount in PHP" id="amount" name="amount" required/>
+                                    <input class="form-control" type="number" value="" placeholder="Amount in PHP" id="amount" name="amount"/>
                                     </div>
                                  </div>
                                 </div>
@@ -429,10 +438,10 @@ if (!isset($admin)) {
                                  <div class="col mb-3">
                                    <div class="mb-3">
                                     <label for="type" class="form-label">Type</label>
-                                    <select id="type" class="form-select" name="type" required>
+                                    <select id="type" class="form-select" name="type">
                                     <option>Select Type</option>
-                                    <option value="credit">credit</option>
-                                    <option value="debit">debit</option>
+                                    <option value="credit">Credit</option>
+                                    <option value="debit">Debit</option>
                                     </select>
                                    </div>
                                   </div>
@@ -441,7 +450,7 @@ if (!isset($admin)) {
                                 <div class="mb-3">
                                   <label for="encoder" class="form-label">Encoder</label>
                                     <div class="col-md-12">
-                                    <input class="form-control" type="text" value="<?= $fetch_profile['username']; ?>" id="encoder" name="encoder" required/>
+                                    <input class="form-control" type="text" value="<?= $fetch_profile['username']; ?>" id="encoder" name="encoder" readonly/>
                                     </div>
                                  </div>
                                 </div>
@@ -449,7 +458,7 @@ if (!isset($admin)) {
                                  <div class="col mb-3">
                                    <div class="mb-3">
                                     <label for="status" class="form-label">Status</label>
-                                    <select id="type" class="form-select" name="status" required>
+                                    <select id="type" class="form-select" name="status">
                                     <option>Select Status</option>
                                     <option value="pending">Pending</option>
                                     </select>
@@ -459,9 +468,9 @@ if (!isset($admin)) {
                                 <div class="row">
                                   <div class="col mb-3">
                                   <div>
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" rows="5" name="description" required></textarea>
-                      </div>
+                                  <label for="description" class="form-label">Description</label>
+                                  <textarea class="form-control" id="description" rows="5" name="description"></textarea>
+                                  </div>
                                   </div>
                                 </div>
                                 </div>
@@ -481,7 +490,7 @@ if (!isset($admin)) {
               <!-- Responsive Table -->
               <div class="card">
                 <h5 class="card-header"></h5>
-<div class="table-responsive text-nowrap">
+                <div class="table-responsive text-nowrap">
                   <table class="table table-hover">
                     <thead>
                       <tr class="text-nowrap">
@@ -493,17 +502,17 @@ if (!isset($admin)) {
                         <th>Encoder</th>
                         <th>Status</th>
                         <th>Description</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php
-                    // please change the like condition to match your department
-                    $query = $conn->prepare("SELECT * FROM `requests` WHERE `account` LIKE '%accounting%' and `status` LIKE '%pending%'");
-                    $row_count = 1;
+
+                    $query = $conn->prepare("SELECT * FROM `requests` WHERE `account` LIKE '%departmentnamehere%' and `status` LIKE '%pending%'");
                     $query->execute();
                     while ($row = $query->fetch()) { ?>
                                 <tr>
-                                <td><?php echo $row_count ?></td>
+                                <td><?= $row['req_id'] ?></td>
                                     <td><?= $row['date'] ?></td>
                                     <td><?= $row['account'] ?></td>
                                     <td>₱ <?= $row['amount'] ?></td>
@@ -511,10 +520,19 @@ if (!isset($admin)) {
                                     <td><?= $row['encoder'] ?></td>
                                     <td><?= $row['status'] ?></td>
                                     <td><?= $row['description'] ?></td>
+                                    <td><div class="dropdown">
+                                          <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                          <i class="bx bx-dots-vertical-rounded"></i>
+                                          </button>
+                                            <div class="dropdown-menu">
+                                            <a class="dropdown-item" href=""><i class='bx bx-check'></i> Approve</a>
+                                            <a class="dropdown-item" href=""><i class='bx bx-x'></i> Deny</a>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
 
           <?php
-                      $row_count++;
                     }
           ?>
                     </tbody>

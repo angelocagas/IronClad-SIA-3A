@@ -1,6 +1,8 @@
 <?php
 include 'connect.php';
 
+session_start();
+
 $admin = $_SESSION['admin'];
 
 if (!isset($admin)) {
@@ -9,6 +11,8 @@ if (!isset($admin)) {
 
 if (isset($_POST['submit'])) {
 
+    $reqid = $_POST['req_id'];
+    $reqid = filter_var($reqid);
     $account = $_POST['account'];
     $account = filter_var($account);
     $date = $_POST['date'];
@@ -24,22 +28,19 @@ if (isset($_POST['submit'])) {
     $status = $_POST['status'];
     $status = filter_var($status);
 
-// please change the details to match your current database  
+    
+    $insert = $conn->prepare("INSERT INTO `requests` (req_id, date, account, amount, type, encoder, status, description) VALUES(?,?,?,?,?,?,?,?)");
+    $insert->execute([$reqid, $date, $account, $amount, $type, $encoder, $status, $description]);
 
-    $insert = $conn->prepare("INSERT INTO `requests` (date, account, amount, type, encoder, status, description) VALUES(?,?,?,?,?,?,?)");
-    $insert->execute([$date, $account, $amount, $type, $encoder, $status, $description]);
+    $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+    $select_profile->execute([$admin]);
+    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
 
-// below is for audit trail, you can change it to match your own
+    $auditlogin = $conn->prepare("INSERT INTO `audit`(role, username, action) VALUES(?,?,?)");
+    $auditlogin->execute(["admin", $fetch_profile['username'], "add new fund request"]);
 
-//    $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
-//    $select_profile->execute([$admin]);
-//    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+    header('location: departmentreqnew.php');
 
-//    $auditlogin = $conn->prepare("INSERT INTO `audit`(role, username, action) VALUES(?,?,?)");
-//    $auditlogin->execute(["admin", $fetch_profile['username'], "add new fund request"]);
-// end of audit trail
-
-    header('location: departmentreq.php');
 
 }
 
