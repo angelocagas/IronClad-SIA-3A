@@ -7,7 +7,7 @@ session_start();
 $admin = $_SESSION['admin'];
 
 if (!isset($admin)) {
-  header('location:login.php');
+    header('location:login.php');
 }
 
 ?>
@@ -167,7 +167,7 @@ if (!isset($admin)) {
             </li>
 
             <!-- Reports -->
-            
+
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Reports</span>
             </li>
@@ -238,7 +238,7 @@ if (!isset($admin)) {
                 </li>
               </ul>
             </li>
-           
+
             <!-- Users -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">User Menu</span></li>
             <!-- Cards -->
@@ -254,7 +254,7 @@ if (!isset($admin)) {
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="User interface">User List</div>
               </a>
-             
+
             <!-- Extended components -->
             <li class="menu-item">
               <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -312,13 +312,13 @@ if (!isset($admin)) {
                             </div>
                           </div>
                           <?php
-                          $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
-                          $select_profile->execute([$admin]);
-                          $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-                          ?>
+$select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+$select_profile->execute([$admin]);
+$fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+?>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block"><?= $fetch_profile['fullname']; ?></span>
-                            <small class="text-muted"><?= $fetch_profile['role']; ?></small>
+                            <span class="fw-semibold d-block"><?=$fetch_profile['fullname'];?></span>
+                            <small class="text-muted"><?=$fetch_profile['role'];?></small>
                           </div>
                         </div>
                       </a>
@@ -371,14 +371,14 @@ if (!isset($admin)) {
                           Add a Request
                         </button>
                         <?php
-                        $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
-                        $select_profile->execute([$admin]);
-                        $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+$select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+$select_profile->execute([$admin]);
+$fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
 
-                        $select_req = $conn->prepare("SELECT * FROM `requests` ORDER BY `req_id` DESC LIMIT 1");
-                        $select_req->execute();
-                        $fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
-                        ?>
+$select_req = $conn->prepare("SELECT * FROM `requests` ORDER BY `req_id` DESC LIMIT 1");
+$select_req->execute();
+$fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
+?>
                         <!-- Modal -->
                         <div class="modal fade" id="modalCenter4" tabindex="-1" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -397,7 +397,7 @@ if (!isset($admin)) {
                                 <div class="mb-3">
                                   <label for="encoder" class="form-label">Request ID</label>
                                     <div class="col-md-12">
-                                    <input class="form-control" type="text" value="<?= $fetch_req['req_id'] + 1; ?>" id="reqid" name="reqid" readonly/>
+                                    <input class="form-control" type="text" value="<?=$fetch_req['req_id'] + 1;?>" id="reqid" name="reqid" readonly/>
                                     </div>
                                  </div>
                                 </div>
@@ -450,7 +450,7 @@ if (!isset($admin)) {
                                 <div class="mb-3">
                                   <label for="encoder" class="form-label">Encoder</label>
                                     <div class="col-md-12">
-                                    <input class="form-control" type="text" value="<?= $fetch_profile['username']; ?>" id="encoder" name="encoder" readonly/>
+                                    <input class="form-control" type="text" value="<?=$fetch_profile['username'];?>" id="encoder" name="encoder" readonly/>
                                     </div>
                                  </div>
                                 </div>
@@ -508,33 +508,47 @@ if (!isset($admin)) {
                     <tbody>
                     <?php
 
-                    $query = $conn->prepare("SELECT * FROM `requests` WHERE `account` LIKE '%accounting%' and `status` LIKE '%pending%'");
-                    $query->execute();
-                    while ($row = $query->fetch()) { ?>
-                                <tr>
-                                <td><?= $row['req_id'] ?></td>
-                                    <td><?= $row['date'] ?></td>
-                                    <td><?= $row['account'] ?></td>
-                                    <td>₱ <?= $row['amount'] ?></td>
-                                    <td><?= $row['type'] ?></td>
-                                    <td><?= $row['encoder'] ?></td>
-                                    <td><?= $row['status'] ?></td>
-                                    <td><?= $row['description'] ?></td>
-                                    <td><div class="dropdown">
-                                          <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                          <i class="bx bx-dots-vertical-rounded"></i>
-                                          </button>
-                                            <div class="dropdown-menu">
-                                            <a class="dropdown-item" href=""><i class='bx bx-check'></i> Approve</a>
-                                            <a class="dropdown-item" href=""><i class='bx bx-x'></i> Deny</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+$query = $conn->prepare("SELECT * FROM `requests` WHERE `account` LIKE '%accounting%' AND (`status` LIKE '%pending%' OR `status` = 'denied' OR `status` = 'approved')");
+$query->execute();
+while ($row = $query->fetch()) {
+    ?>
+    <tr>
+        <td><?=$row['req_id']?></td>
+        <td><?=$row['date']?></td>
+        <td><?=$row['account']?></td>
+        <td>₱ <?=$row['amount']?></td>
+        <td><?=$row['type']?></td>
+        <td><?=$row['encoder']?></td>
+        <td><?php
+if ($row['status'] === 'denied') {
+        echo '<span style="color: red;">Denied</span>';
+    } else if ($row['status'] === 'approved') {
+        echo '<span style="color: green;">Approved</span>';
+    } else {
+        echo $row['status'];
+    }
+    ?></td>
+        <td><?=$row['description']?></td>
+        <td>
+            <?php if ($row['status'] !== 'denied' && $row['status'] !== 'approved') {?>
+                <div class="dropdown">
+                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="approve.php?req_id=<?=$row['req_id']?>"><i class='bx bx-check'></i> Approve</a>
+                        <a class="dropdown-item" href="deny.php?req_id=<?=$row['req_id']?>"><i class='bx bx-x'></i> Deny</a>
+                    </div>
+                </div>
+            <?php }?>
+        </td>
+    </tr>
+    <?php
+}
+?>
 
-          <?php
-                    }
-          ?>
+
+
                     </tbody>
                   </table>
                 </div>
