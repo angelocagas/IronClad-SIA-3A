@@ -448,7 +448,7 @@ echo "<script>window.location.href = 'sAr-Dashboard.php'</script>";
 			   
 				
 
-                ?> Accounting Magagaling ito?</h3>
+                ?> Accounting Magagaling ito? ss</h3>
                   </div>
                 </div>
               </div>
