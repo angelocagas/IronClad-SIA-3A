@@ -219,7 +219,7 @@ echo "<script>window.location.href = 'orders.php'</script>";
               </a>
             </li>
             <li class="menu-item ">
-              <a href="sAr-Dashboard.php" class="menu-link">
+            <a href="sAr-history.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Analytics">History</div>
               </a>
@@ -371,7 +371,7 @@ echo "<script>window.location.href = 'orders.php'</script>";
             <!-- Basic Bootstrap Table -->
             <!-- card -->
             <h3>Sale Approval Request</h3>
-            <a href="insert_products.php" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+            <a href="insert_sale.php" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Add a Request</span></a>
               <br><br>  
             <div class="row mb-5">
  
@@ -428,12 +428,25 @@ while ($row=mysqli_fetch_array($ret)) {
                       <tr>
                         <td><?php echo $cnt++;?></td>
                         
-                 
-                        <td><?php  echo $row['customer'];?> </td>
-                        <td><?php  echo $row['date_added'];?></td>                        
-                        <td><?php  echo $row['price'];?></td>
+                        <td><?php  echo $row['date_added'];?></td>         
+                        <td><?php  echo $row['account'];?> </td>
+                               
+                        <td><?php  echo $row['amount'];?>&nbsp;PHP</td>
                         <td><?php  echo $row['type'];?></td>
-                  
+                        <td><?php  echo $row['encoder'];?></td>
+                        <td><?php if($row['status'] == 0){
+                          echo  ' <h4 style="Background:lightgray; color:white;  text-align:center;padding:5px; width:120px;font-size:"5px";  border-radius:10px">PENDING</h4>';
+                        }else {
+							          echo  '<h4 style="Background:skyblue; color:white;  text-align:center;padding:5px; width:120px;font-size:"5px";  border-radius:10px">APPROVED</h4>';
+
+						}?></td>
+                        <td><?php  echo $row['description'];?></td>
+                        <td><?php if($row['status_document'] == 0){
+                          echo  ' <h4 style="Background:red; color:white;  text-align:center;padding:5px; width:150px;font-size:"5px";  border-radius:10px">INCOMPLETE</h4>';
+                        }else {
+							          echo  '<h4 style="Background:green; color:white;  text-align:center;padding:5px; width:150px;font-size:"5px";  border-radius:10px">COMPLETE</h4>';
+
+						}?></td>
                        
               
                     </tr>

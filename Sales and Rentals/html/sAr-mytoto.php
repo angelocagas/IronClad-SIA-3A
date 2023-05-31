@@ -219,7 +219,7 @@ echo "<script>window.location.href = 'orders.php'</script>";
               </a>
             </li>
             <li class="menu-item ">
-              <a href="sAr-Dashboard.php" class="menu-link">
+            <a href="sAr-history.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Analytics">History</div>
               </a>

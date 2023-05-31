@@ -222,7 +222,7 @@ echo "<script>window.location.href = 'orders.php'</script>";
               </a>
             </li>
             <li class="menu-item ">
-              <a href="sAr-Dashboard.php" class="menu-link">
+            <a href="sAr-history.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Analytics">History</div>
               </a>
@@ -387,12 +387,12 @@ echo "<script>window.location.href = 'orders.php'</script>";
                 <table class="table">
                   <thead>
                     <tr>
-                    <td>#</td>
+                                    <td>EQUIPMENT ID</td>
                                     <td>Picture Equipment</td>
-                                
-                                    <td>Date & Time</td>
-                                    <td>Price</td>
+                                    <td>Equipment Name</td>
                                     <td>Status</td>
+                                    <td>Issued Date</td>
+                                    <td>Stock</td>
                                     <td>Action</td>
                     </tr>
                   </thead>
@@ -410,18 +410,25 @@ while ($row=mysqli_fetch_array($ret)) {
                       <tr>
 
                       <tr>
-                        <td><?php echo $cnt++;?></td>
+                        <td><?php echo $row['equipment_id'];?></td>
                         <td><img src="product/<?= $row['file_img'];?>" width="80" height="80"></td>
-                       
-                        <td><?php  echo $row['date_added'];?></td>                        
-                        <td><?php  echo $row['price'];?></td>
-     
-                                 <td><?php if($row['book'] == 0){
-                          echo  ' <h4 style="Background:lightgray; color:white;  text-align:center;padding:5px; width:120px;font-size:"15px";  border-radius:10px">Pending</h4>';
-                        }else {
-							          echo  '<h4 style="Background:skyblue; color:white;  text-align:center;padding:5px; width:120px;font-size:"15px";  border-radius:10px">Approved</h4>';
+                        <td><?php  echo $row['equipment_name'];?></td>    
+                        <td><?php if($row['status'] == 0){
+                          echo  ' <h4 style="Background:lightgray; color:white;  text-align:center;padding:5px; width:170px;font-size:"15px";  border-radius:10px">Pending</h4>';
+                        }else if($row['status'] == 1){
+                          echo  ' <h4 style="Background:lightgray; color:green;  text-align:center;padding:5px; width:170px;font-size:"15px";  border-radius:10px">RENTED</h4>';
+                        }else if($row['status'] == 2){
+                          echo  ' <h4 style="Background:lightgray; color:yellow;  text-align:center;padding:5px; width:170px;font-size:"15px";  border-radius:10px">MAINTENANCE</h4>';
+                        }else if($row['status'] == 3){
+                          echo  ' <h4 style="Background:lightgray; color:Red;  text-align:center;padding:5px; width:170px;font-size:"15px";  border-radius:10px">SOLD</h4>';
+                        } else{
+							          echo  '<h4 style="Background:lightgray; color:Blue;  text-align:center;padding:5px; width:170px;font-size:"15px";  border-radius:10px">AVAILABLE</h4>';
 
 						}?></td>
+                        <td><?php  echo $row['date_added'];?></td>                        
+                        <td><?php  echo $row['in_stock'];?></td>
+     
+                
                        
                    <td>
                            <a href="view_products.php?viewid=<?php echo htmlentities ($row['equipment_id']);?>" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>

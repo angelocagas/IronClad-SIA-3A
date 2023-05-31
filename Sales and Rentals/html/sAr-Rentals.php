@@ -1,31 +1,4 @@
-<?php
-require 'dbcon.php';
-session_start();
-$ongoing_card_count = 0;
-$og_query_card = 'SELECT * FROM orders WHERE num = (?)';
-$og_prepare_card = $pdocon->prepare($og_query_card);
-$og_exe = $og_prepare_card ->execute(array('1'));
-foreach($og_prepare_card as $ctr){
-  $ongoing_card_count+=1;
-}
-$rentals_count = 0;
-$rentals_query_card = 'SELECT * FROM rentals WHERE num = (?)';
-$rentals_query_prepare = $pdocon->prepare($rentals_query_card);
-$rentals_exe = $rentals_query_prepare ->execute(array('1'));
-foreach($rentals_query_prepare as $ctr){
-  $rentals_count+=1;
-}
 
-
-$rentals_count = 0;
-$rentals_card = 'SELECT * FROM rentals';
-$rentals_prepare_card = $pdocon->prepare($rentals_card);
-$rentals_exe = $rentals_prepare_card ->execute();
-foreach($rentals_prepare_card as $ctr){
-  $rentals_count+=1;
-}
-
-?>
 <?php
 
 //Code for deletion
@@ -218,7 +191,7 @@ echo "<script>window.location.href = 'orders.php'</script>";
               </a>
             </li>
             <li class="menu-item ">
-              <a href="sAr-Dashboard.php" class="menu-link">
+            <a href="sAr-history.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Analytics">History</div>
               </a>
@@ -370,7 +343,7 @@ echo "<script>window.location.href = 'orders.php'</script>";
             <!-- Basic Bootstrap Table -->
             <!-- card -->
             <h3>Rental Approval Request</h3>
-            <a href="insert_products.php" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+            <a href="insert_products.php" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Add a Request</span></a>
               <br><br>  
             <div class="row mb-5">
  
@@ -394,14 +367,17 @@ echo "<script>window.location.href = 'orders.php'</script>";
                     <tr>
                                     <td>Request ID</td>
                                     <td>Picture Equipment</td>
-                                    <td>Date & Time</td>
+                                    <td>Date</td>
                                     <td>Account</td>
+                                    <td>Rent Duration</td>
+                                    <td>Price</td>
                                     <td>Amount</td>
                                     <td>Type</td>
                                     <td>Encoder</td>
                                     <td>Status</td>
                                     <td>Description</td>
                                     <td>Document Status</td>
+                                    <td>Actions</td>
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
@@ -422,14 +398,22 @@ while ($row=mysqli_fetch_array($ret)) {
                         <td><img src="product/<?= $row['file_img'];?>" width="80" height="80"></td>
                         <td><?php  echo $row['rental_start_date'];?></td> 
                         <td><?php  echo $row['customer_name'];?> </td>
-                        <td><?php  echo $row['price'];?></td>
-                        <td><?php  echo $row['rental_items'];?></td>
-                        <td><?php  echo $row['day'];?></td>
+                        <td><?php  echo $row['day'];?> Day</td>
+                        <td><?php  echo $row['price'];?> </td>
                         <td><?php  echo $row['day'] * $row['price'];?></td>
+                        <td><?php  echo $row['type'];?></td>
+                        <td><?php  echo $row['encoder'];?></td>
                         <td><?php if($row['status'] == 0){
                           echo  ' <h4 style="Background:lightgray; color:white;  text-align:center;padding:5px; width:120px;font-size:"15px";  border-radius:10px">Pending</h4>';
                         }else {
 							          echo  '<h4 style="Background:skyblue; color:white;  text-align:center;padding:5px; width:120px;font-size:"15px";  border-radius:10px">Approved</h4>';
+
+						}?></td>
+                    <td><?php  echo $row['description'];?></td>
+                    <td><?php if($row['status_document'] == 0){
+                          echo  ' <h4 style="Background:red; color:white;  text-align:center;padding:5px; width:150px;font-size:"5px";  border-radius:10px">INCOMPLETE</h4>';
+                        }else {
+							          echo  '<h4 style="Background:green; color:white;  text-align:center;padding:5px; width:150px;font-size:"5px";  border-radius:10px">COMPLETE</h4>';
 
 						}?></td>
                         <td>

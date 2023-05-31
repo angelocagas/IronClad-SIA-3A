@@ -1,25 +1,4 @@
-<?php
-require 'dbcon.php';
-session_start();
-$ongoing_card_count = 0;
-$og_query_card = 'SELECT * FROM orders WHERE num = (?)';
-$og_prepare_card = $pdocon->prepare($og_query_card);
-$og_exe = $og_prepare_card ->execute(array('1'));
-foreach($og_prepare_card as $ctr){
-  $ongoing_card_count+=1;
-}
 
-
-
-$rentals_count = 0;
-$rentals_card = 'SELECT * FROM rentals';
-$rentals_prepare_card = $pdocon->prepare($rentals_card);
-$rentals_exe = $rentals_prepare_card ->execute();
-foreach($rentals_prepare_card as $ctr){
-  $rentals_count+=1;
-}
-
-?>
 <?php
 
 //Code for deletion
@@ -27,25 +6,24 @@ if(isset($_GET['approved']))
 {
 $approved=intval($_GET['approved']);
 
-$sql=mysqli_query($con,"UPDATE `sale` SET `status`='1' WHERE sale_id=$approved");
+$sql=mysqli_query($con,"delete from sale where sale_id=$approved");
 
-
-echo "<script>alert('update');</script>"; 
-echo "<script>window.location.href = 'sAr-Dashboard.php'</script>";     
+echo "<script>alert('Data deleted');</script>"; 
+echo "<script>window.location.href = 'orders.php'</script>";     
 } 
 if(isset($_GET['deny']))
 {
 $deny=intval($_GET['deny']);
 
-$sql=mysqli_query($con,"UPDATE `sale` SET `status`='3' WHERE sale_id=$approved");
+$sql=mysqli_query($con,"delete from sale where sale_id=$deny");
 
-echo "<script>alert('update');</script>"; 
-echo "<script>window.location.href = 'sAr-Dashboard.php'</script>";     
+echo "<script>alert('Data deleted');</script>"; 
+echo "<script>window.location.href = 'orders.php'</script>";     
 } 
 ?>
 
 <!DOCTYPE html>
-<!-- =======================================================
+<!-- ========================================================
 * Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
 ==============================================================
 
@@ -86,7 +64,9 @@ echo "<script>window.location.href = 'sAr-Dashboard.php'</script>";
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
 
@@ -97,9 +77,8 @@ echo "<script>window.location.href = 'sAr-Dashboard.php'</script>";
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+
+
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
@@ -191,7 +170,7 @@ echo "<script>window.location.href = 'sAr-Dashboard.php'</script>";
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
+            <li class="menu-item ">
               <a href="sAr-Dashboard.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -212,8 +191,8 @@ echo "<script>window.location.href = 'sAr-Dashboard.php'</script>";
                 <div data-i18n="Analytics">Rentals</div>
               </a>
             </li>
-            <li class="menu-item ">
-               <a href="sAr-history.php" class="menu-link">
+            <li class="menu-item active">
+              <a href="sAr-history.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Analytics">History</div>
               </a>
@@ -236,7 +215,7 @@ echo "<script>window.location.href = 'sAr-Dashboard.php'</script>";
               </a>
             </li>
             <li class="menu-item ">
-              <a href="sAr-mytoto.php" class="menu-link">
+              <a href="sA-mytoto.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">MyToto</div>
               </a>
@@ -361,149 +340,53 @@ echo "<script>window.location.href = 'sAr-Dashboard.php'</script>";
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
-          <div class="content-wrapper">
-            <!-- Content -->
-
-            <div class="container-xxl flex-grow-1 container-p-y">
+          <div class="container-xxl flex-grow-1 container-p-y">
             <!-- Basic Bootstrap Table -->
             <!-- card -->
+            <h3>History Log</h3>
+          
+              <br><br>  
             <div class="row mb-5">
-              <div class="col-md-6 col-lg-4">
-                <div class="card mb-3">
-                  <div class="card-body">
-                  <h5 class="card-title">Approved Rentals </h5>
-                    <h3 class="card-text"><?php 
-				    include('dbconnect_mysqlie.php');
  
-				 
-				  $product = $con->query("SELECT sum(num) as total FROM `rentals` where status= '1'")->fetch_assoc()['total'];
-				  echo number_format($product);
-				
-			   
-				
 
-                ?></h3>
-                   
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-lg-4">
-                <div class="card mb-3">
-                  <div class="card-body">
-                  <h5 class="card-title">Pending Rentals  </h5>
-                    <h3 class="card-text"><?php 
-				    include('dbconnect_mysqlie.php');
- 
-				 
-				  $product = $con->query("SELECT sum(num) as total FROM `rentals` where status= '0'")->fetch_assoc()['total'];
-				  echo number_format($product);
-				
-			   
-				
-
-                ?></h3>
-                 
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-lg-4">
-                <div class="card mb-3">
-                  <div class="card-body">
-                  <h5 class="card-title">Approved Sales</h5>
-                  <h3 class="card-text"><?php 
-				    include('dbconnect_mysqlie.php');
- 
-				 
-				  $product = $con->query("SELECT sum(num) as total FROM `rentals` where status= '0'")->fetch_assoc()['total'];
-				  echo number_format($product);
-				
-			   
-				
-
-                ?>Accounting Magagaling ito?</h3>
-                    
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-lg-4">
-                <div class="card mb-3">
-                  <div class="card-body">
-                  <h5 class="card-title">Pending Sales</h5>
-                    <h3 class="card-text"><?php 
-				    include('dbconnect_mysqlie.php');
- 
-				 
-				  $product = $con->query("SELECT sum(num) as total FROM `orders` where status= '1'")->fetch_assoc()['total'];
-				  echo number_format($product);
-				
-			   
-				
-
-                ?> Accounting Magagaling ito? ss</h3>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-4">
-                <div class="card mb-3">
-                  <div class="card-body">
-                  <h5 class="card-title">Dispatched</h5>
-                    <h3 class="card-text"><?php 
-				     include('dbconnect_mysqlie.php');
- 
-				 
-             $product = $con->query("SELECT sum(num) as total FROM `orders` where status= '0'")->fetch_assoc()['total'];
-             echo number_format($product);
            
-            
-				
-			   
-				
 
-                ?>Dispatched Magagaling ito?</h3>
-                  </div>
-                </div>
-              </div>
+     
+  
               
              
-               
-			   
-				
-
-             
-
-             
-              </div>
             
-            <!-- Basic Bootstrap Table -->
-            <!-- card -->
-      
-              
+             
+             
             <!-- end card -->
             <div class="card">
-            <h5 class="card-header">Incoming Request</h5>
+    
           
               <div class="table-responsive text-nowrap">
                 <table class="table">
                   <thead>
                     <tr>
-                    <td>Request Id</td>
+               
                                   
                                 
-                           
                                     <td>Date & Time</td>
-                                    <td>Amount</td>
+                                    
+                                    <td>Equipment ID</td>
+                                  
                                     <td>Type</td>
-                                    <td>Status</td>
+                                    
+                                    <td>Customer ID</td>
+                                    
+                                    <td>Activity</td>
+                                    
+                                  
                               
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
                   <?php
-$ret=mysqli_query($con,"select * from sale");
+                  include 'dbconnect_mysqlie.php';
+$ret=mysqli_query($con,"select * from history_log");
 $cnt=1;
 $row=mysqli_num_rows($ret);
 if($row>0){
@@ -514,20 +397,20 @@ while ($row=mysqli_fetch_array($ret)) {
                       <tr>
 
                       <tr>
-                        <td><?php echo $cnt++;?></td>
+                     
                         
-                 
-                      
-                        <td><?php  echo $row['date_added'];?></td>                        
-                        <td><?php  echo $row['amount'];?></td>
-                        <td><?php  echo $row['type'];?></td>
+                        <td><?php  echo $row['date_added'];?></td>         
+                        <td><?php  echo $row['equipment_id'];?> </td>
                   
-                        <td><?php if($row['status'] == 0){
-                          echo  ' <h4 style="Background:red; color:white;  text-align:center;padding:5px; width:100px;font-size:"15px";  border-radius:10px">Deny</h4>';
+                        <td><?php  echo $row['type'];?></td>
+                        <td><?php  echo $row['customer_id'];?></td>
+                        <td><?php if($row['activity'] == 0){
+                          echo  ' <h4 style="Background:lightgray; color:white;  text-align:center;padding:5px; width:120px;font-size:"5px";  border-radius:10px">Ongoing</h4>';
                         }else {
-							          echo  '<h4 style="Background:skyblue; color:white;  text-align:center;padding:5px; width:100px;font-size:"15px";  border-radius:10px">Approved</h4>';
+							          echo  '<h4 style="Background:skyblue; color:white;  text-align:center;padding:5px; width:120px;font-size:"5px";  border-radius:10px">Paid</h4>';
 
-						}?></td>
+						}?>
+                       
               
                     </tr>
                        
@@ -551,6 +434,7 @@ while ($row=mysqli_fetch_array($ret)) {
           </div>
           <!-- / Layout page -->
         </div>
+
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
