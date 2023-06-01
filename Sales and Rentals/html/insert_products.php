@@ -6,7 +6,7 @@ if(isset($_POST['submit']))
   	//getting the post values
  
 	$equipment_name=$_POST['equipment_name'];
-    $model=$_POST['model'];
+  
     $years=$_POST['years'];
     $price=$_POST['price'];
 	$detail=$_POST['detail'];
@@ -27,11 +27,14 @@ $imgs=md5($files).time().$extension;
 // Code for move image into directory
 move_uploaded_file($_FILES["product"]["tmp_name"],"product/".$imgs);
 // Query for data insertion
-$query=mysqli_query($con, "insert into equipment(equipment_name,year, model,price,Detail, file_img) value('$equipment_name','$years','$model',  '$price', '$detail' ,'$imgs' )");
+$query=mysqli_query($con, "insert into equipment(equipment_name,year, price,Detail, file_img) value('$equipment_name','$years', '$price', '$detail' ,'$imgs' )");
+$query=mysqli_query($con, "INSERT INTO `history_log`(`equipment_name`, `type`) VALUES ('$equipment_name','[value-4]')");
+$query=mysqli_query($con, "INSERT INTO `sar_audit`( `role`, `username`, `action`) VALUES ('admin','ADMINISTRATOR','Successfully to request Equipment')");
 
 if ($query) {
 echo "<script>alert('You a successfully inserted the data');</script>";
 echo "<script type='text/javascript'> document.location ='sAr-Inventory.php'; </script>";
+
 } else{
 echo "<script>alert('Something Went Wrong. Please try again');</script>";
 }}

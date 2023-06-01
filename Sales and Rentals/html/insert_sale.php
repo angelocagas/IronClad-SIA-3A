@@ -136,7 +136,14 @@ body {
 			<div class="row">
 
 		<div class="col">
-	    <input type="text" class="form-control" name="account"  placeholder="Account" value="Rentals And Sale" required="true">
+		<select name="type" class="form-control" id="account" required="true">
+			<option value="Select Type" disabled>Select Type</option>
+            <option value="volvo">Accounting</option>
+            <option value="saab">Dispatch</option>
+            <option value="opel">Equipment Lifecycle</option>
+            <option value="audi">Maintenance</option>
+			<option value="audi">Rental and Sales</option>
+            </select>
 	    </div>
 			</div>        	
         </div>
@@ -146,11 +153,11 @@ body {
 		<div class="form-group">
         
 			<select name="type" class="form-control" id="type" required="true">
-			<option value="volvo" disabled>Type</option>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+			<option value="Select Type" disabled>Select Type</option>
+            <option value="Card">Card</option>
+            <option value="Credit">Credit</option>
+            <option value="ATM Card">ATM Card</option>
+          
             </select>
         </div>
 		<div class="form-group">

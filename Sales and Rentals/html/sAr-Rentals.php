@@ -220,7 +220,7 @@ echo "<script>window.location.href = 'orders.php'</script>";
               </a>
             </li>
             <li class="menu-item">
-              <a href="javascript:void(0)" class="menu-link">
+            <a href="sAr-Audittrail.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-copy"></i>
                 <div data-i18n="Extended UI">Audit Trail</div>
               </a>

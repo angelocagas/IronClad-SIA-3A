@@ -248,7 +248,7 @@ echo "<script>window.location.href = 'orders.php'</script>";
               </a>
             </li>
             <li class="menu-item">
-              <a href="javascript:void(0)" class="menu-link">
+            <a href="sAr-Audittrail.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-copy"></i>
                 <div data-i18n="Extended UI">Audit Trail</div>
               </a>
@@ -370,9 +370,10 @@ echo "<script>window.location.href = 'orders.php'</script>";
           <div class="container-xxl flex-grow-1 container-p-y">
             <!-- Basic Bootstrap Table -->
             <!-- card -->
-            <h3>Sale Approval Request</h3>
-            <a href="insert_products.php" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-              <br><br>  
+            <h3>My Time on/ Time Off</h3>
+            <a href="insert_products.php" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Punch In</span></a>
+              <br><br> 
+              
             <div class="row mb-5">
  
 

@@ -1,4 +1,31 @@
+<?php
+require 'dbcon.php';
+session_start();
+$ongoing_card_count = 0;
+$og_query_card = 'SELECT * FROM orders WHERE num = (?)';
+$og_prepare_card = $pdocon->prepare($og_query_card);
+$og_exe = $og_prepare_card ->execute(array('1'));
+foreach($og_prepare_card as $ctr){
+  $ongoing_card_count+=1;
+}
+$rentals_count = 0;
+$rentals_query_card = 'SELECT * FROM rentals WHERE num = (?)';
+$rentals_query_prepare = $pdocon->prepare($rentals_query_card);
+$rentals_exe = $rentals_query_prepare ->execute(array('1'));
+foreach($rentals_query_prepare as $ctr){
+  $rentals_count+=1;
+}
 
+
+$rentals_count = 0;
+$rentals_card = 'SELECT * FROM rentals';
+$rentals_prepare_card = $pdocon->prepare($rentals_card);
+$rentals_exe = $rentals_prepare_card ->execute();
+foreach($rentals_prepare_card as $ctr){
+  $rentals_count+=1;
+}
+
+?>
 <?php
 
 //Code for deletion
@@ -191,8 +218,8 @@ echo "<script>window.location.href = 'orders.php'</script>";
                 <div data-i18n="Analytics">Rentals</div>
               </a>
             </li>
-            <li class="menu-item active">
-              <a href="sAr-history.php" class="menu-link">
+            <li class="menu-item ">
+            <a href="sAr-history.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Analytics">History</div>
               </a>
@@ -220,8 +247,8 @@ echo "<script>window.location.href = 'orders.php'</script>";
                 <div data-i18n="Basic">MyToto</div>
               </a>
             </li>
-            <li class="menu-item">
-            <a href="sAr-Audittrail.php" class="menu-link">
+            <li class="menu-item active">
+              <a href="sAr-Audittrail.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-copy"></i>
                 <div data-i18n="Extended UI">Audit Trail</div>
               </a>
@@ -343,7 +370,7 @@ echo "<script>window.location.href = 'orders.php'</script>";
           <div class="container-xxl flex-grow-1 container-p-y">
             <!-- Basic Bootstrap Table -->
             <!-- card -->
-            <h3>History Log</h3>
+            <h3>Audit Trail</h3>
           
               <br><br>  
             <div class="row mb-5">
@@ -360,33 +387,27 @@ echo "<script>window.location.href = 'orders.php'</script>";
              
             <!-- end card -->
             <div class="card">
-    
+   
           
               <div class="table-responsive text-nowrap">
                 <table class="table">
                   <thead>
                     <tr>
-               
+                    
                                   
-                                
-                                    <td>Date & Time</td>
-                                    
-                                    <td>Equipment Name</td>
-                                  
-                                    <td>Type</td>
-                                    
-                                    <td>Customer ID</td>
-                                    
-                                    <td>Activity</td>
-                                    
-                                  
+                                    <td>AUDIT ID</td>
+                                    <td>ROLE</td>
+                                    <td>USERNAME</td>
+                                    <td>ACTION</td>
+                                    <td>TIMESTAMP</td>
+                              
                               
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
                   <?php
                   include 'dbconnect_mysqlie.php';
-$ret=mysqli_query($con,"select * from history_log");
+$ret=mysqli_query($con,"select * from sar_audit");
 $cnt=1;
 $row=mysqli_num_rows($ret);
 if($row>0){
@@ -397,19 +418,15 @@ while ($row=mysqli_fetch_array($ret)) {
                       <tr>
 
                       <tr>
-                     
+                      
                         
-                        <td><?php  echo $row['date_added'];?></td>         
-                        <td><?php  echo $row['equipment_name'];?> </td>
-                  
-                        <td><?php  echo $row['type'];?></td>
-                        <td><?php  echo $row['customer_id'];?></td>
-                        <td><?php if($row['activity'] == 0){
-                          echo  ' <h4 style="Background:lightgray; color:white;  text-align:center;padding:5px; width:120px;font-size:"5px";  border-radius:10px">Ongoing</h4>';
-                        }else {
-							          echo  '<h4 style="Background:skyblue; color:white;  text-align:center;padding:5px; width:120px;font-size:"5px";  border-radius:10px">Paid</h4>';
-
-						}?>
+                        <td><?php  echo $row['audit_id'];?></td>         
+                        <td><?php  echo $row['role'];?> </td>
+                               
+                        <td><?php  echo $row['username'];?></td>
+                        <td><?php  echo $row['action'];?></td>
+                        <td><?php  echo $row['date_created'];?></td>
+             
                        
               
                     </tr>
