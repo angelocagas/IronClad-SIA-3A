@@ -1,31 +1,4 @@
-<?php
-require 'dbcon.php';
-session_start();
-$ongoing_card_count = 0;
-$og_query_card = 'SELECT * FROM orders WHERE num = (?)';
-$og_prepare_card = $pdocon->prepare($og_query_card);
-$og_exe = $og_prepare_card ->execute(array('1'));
-foreach($og_prepare_card as $ctr){
-  $ongoing_card_count+=1;
-}
-$rentals_count = 0;
-$rentals_query_card = 'SELECT * FROM rentals WHERE num = (?)';
-$rentals_query_prepare = $pdocon->prepare($rentals_query_card);
-$rentals_exe = $rentals_query_prepare ->execute(array('1'));
-foreach($rentals_query_prepare as $ctr){
-  $rentals_count+=1;
-}
 
-
-$rentals_count = 0;
-$rentals_card = 'SELECT * FROM rentals';
-$rentals_prepare_card = $pdocon->prepare($rentals_card);
-$rentals_exe = $rentals_prepare_card ->execute();
-foreach($rentals_prepare_card as $ctr){
-  $rentals_count+=1;
-}
-
-?>
 <?php
 
 //Code for deletion
@@ -397,17 +370,12 @@ echo "<script>window.location.href = 'orders.php'</script>";
                                   
                                 
                                     <td>Date & Time</td>
-                                    
                                     <td>Account</td>
                                     <td>Amount</td>
                                     <td>Type</td>
-                                    
                                     <td>Encoder</td>
-                                    
                                     <td>Status</td>
-                                    
                                     <td>Description</td>
-                                    
                                     <td>Document Status</td>
                               
                     </tr>
