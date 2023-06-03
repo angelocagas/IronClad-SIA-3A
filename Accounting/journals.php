@@ -329,6 +329,11 @@ if (!isset($admin)) {
                               <img src="../assets/img/avatars/user.png" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
+                          <?php
+                          $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+                          $select_profile->execute([$admin]);
+                          $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+                          ?>
                           <div class="flex-grow-1">
                             <span class="fw-semibold d-block"><?= $fetch_profile['fullname']; ?></span>
                             <small class="text-muted"><?= $fetch_profile['role']; ?></small>
