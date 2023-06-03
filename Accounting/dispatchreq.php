@@ -394,10 +394,11 @@ if (!isset($admin)) {
                                           <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                           <i class="bx bx-dots-vertical-rounded"></i>
                                           </button>
-                                            <div class="dropdown-menu">
-                                            <a class="dropdown-item" href=""><i class='bx bx-check'></i> Approve</a>
-                                            <a class="dropdown-item" href=""><i class='bx bx-x'></i> Deny</a>
-                                            </div>
+                                          <div class="dropdown-menu">
+                        <a class="dropdown-item" href="dapprove.php?req_id=<?= $row['req_id'] ?>"><i class='bx bx-check'></i> Approve</a>
+                        <a class="dropdown-item" href="ddeny.php?req_id=<?= $row['req_id'] ?>"><i class='bx bx-x'></i> Deny</a>
+                    </a>
+                    </div>
                                         </div>
                                     </td>
                                 </tr>

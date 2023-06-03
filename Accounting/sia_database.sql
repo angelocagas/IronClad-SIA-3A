@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2023 at 05:19 PM
+-- Generation Time: Jun 03, 2023 at 03:54 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -422,7 +422,51 @@ INSERT INTO `audit` (`audit_id`, `role`, `username`, `action`, `timestamp`) VALU
 (391, 'admin', 'mmanugue', 'edit journal', '2023-05-23 14:54:07'),
 (392, 'admin', 'mmanugue', 'mytoto login', '2023-05-23 14:59:31'),
 (393, 'admin', 'mmanugue', 'mytoto logout', '2023-05-23 15:02:20'),
-(394, 'admin', 'mmanugue', 'logout', '2023-05-23 15:03:34');
+(394, 'admin', 'mmanugue', 'logout', '2023-05-23 15:03:34'),
+(395, 'admin', 'mmanugue', 'login', '2023-05-24 14:12:41'),
+(396, 'admin', 'mmanugue', 'mytoto login', '2023-05-24 14:12:54'),
+(397, 'admin', 'mmanugue', 'mytoto logout', '2023-05-24 14:15:16'),
+(398, 'admin', 'mmanugue', 'logout', '2023-05-24 14:22:41'),
+(399, 'admin', 'mmanugue', 'login', '2023-05-24 14:26:12'),
+(400, 'admin', 'mmanugue', 'mytoto login', '2023-05-24 14:27:30'),
+(401, 'admin', 'mmanugue', 'mytoto logout', '2023-05-24 14:30:02'),
+(402, 'admin', 'mmanugue', 'logout', '2023-05-24 14:42:55'),
+(403, 'admin', 'mmanugue', 'login', '2023-05-24 14:43:06'),
+(404, 'admin', 'mmanugue', 'reset another user\'s password', '2023-05-24 14:43:14'),
+(405, 'admin', 'mmanugue', 'reset another user\'s password', '2023-05-24 14:43:18'),
+(406, 'admin', 'mmanugue', 'edit user', '2023-05-24 14:44:48'),
+(407, 'admin', 'mmanugue', 'delete user', '2023-05-24 14:46:11'),
+(408, 'admin', 'mmanugue', 'logout', '2023-05-24 14:46:32'),
+(409, 'admin', 'mmanugue', 'login', '2023-05-25 15:51:37'),
+(410, 'admin', 'mmanugue', 'mytoto login', '2023-05-25 15:52:05'),
+(411, 'admin', 'mmanugue', 'mytoto logout', '2023-05-25 15:52:09'),
+(412, 'admin', 'mmanugue', 'mytoto login', '2023-05-25 15:55:49'),
+(413, 'admin', 'mmanugue', 'mytoto logout', '2023-05-25 15:55:57'),
+(414, 'admin', 'mmanugue', 'logout', '2023-05-25 16:00:39'),
+(415, 'admin', 'mmanugue', 'login', '2023-05-28 11:45:03'),
+(416, 'admin', 'mmanugue', 'login', '2023-06-03 10:36:35'),
+(417, 'admin', 'mmanugue', 'mytoto login', '2023-06-03 10:36:40'),
+(418, 'admin', 'mmanugue', 'mytoto logout', '2023-06-03 10:37:17'),
+(419, 'admin', 'mmanugue', 'login', '2023-06-03 11:10:08'),
+(420, 'admin', 'mmanugue', 'mytoto login', '2023-06-03 11:10:11'),
+(421, 'admin', 'mmanugue', 'login', '2023-06-03 11:47:40'),
+(422, 'admin', 'mmanugue', 'logout', '2023-06-03 12:21:03'),
+(423, 'admin', 'ccagas', 'login', '2023-06-03 12:21:09'),
+(424, 'admin', 'ccagas', 'mytoto login', '2023-06-03 12:21:29'),
+(425, 'admin', 'ccagas', 'mytoto logout', '2023-06-03 12:21:32'),
+(426, 'admin', 'ccagas', 'logout', '2023-06-03 12:21:46'),
+(427, 'admin', 'mmanugue', 'login', '2023-06-03 12:22:11'),
+(428, 'admin', 'mmanugue', 'delete request', '2023-06-03 13:19:54'),
+(429, 'admin', 'mmanugue', 'delete request', '2023-06-03 13:20:28'),
+(430, 'admin', 'mmanugue', 'delete request', '2023-06-03 13:23:05'),
+(431, 'admin', 'mmanugue', 'delete request', '2023-06-03 13:25:24'),
+(432, 'admin', 'mmanugue', 'delete request', '2023-06-03 13:29:12'),
+(433, 'admin', 'mmanugue', 'delete request', '2023-06-03 13:33:35'),
+(434, 'admin', 'mmanugue', 'delete request', '2023-06-03 13:36:51'),
+(435, 'admin', 'mmanugue', 'delete request', '2023-06-03 13:43:06'),
+(436, 'admin', 'mmanugue', 'delete request', '2023-06-03 13:49:51'),
+(437, 'admin', 'mmanugue', 'delete request', '2023-06-03 13:50:20'),
+(438, 'admin', 'mmanugue', 'logout', '2023-06-03 13:54:20');
 
 -- --------------------------------------------------------
 
@@ -465,7 +509,15 @@ INSERT INTO `journal` (`journal_id`, `date`, `account`, `amount`, `type`, `encod
 (22, '2023-05-10', 'Accounting', 65168546, 'Credit', 'mmanugue', 'test'),
 (23, '2023-05-20', 'Accounting', 10000, 'Credit', 'mmanugue', 'asfdasds'),
 (24, '2023-05-21', 'Accounting', 161513561, 'Credit', 'dbillones', 'oiuho8 oj9'),
-(25, '2023-05-21', 'Accounting', 12313, 'Credit', 'dbillones', 'testing journal id numbering');
+(25, '2023-05-21', 'Accounting', 12313, 'Credit', 'dbillones', 'testing journal id numbering'),
+(26, '2023-06-03', 'Accounting', 1234, 'Credit', 'mmanugue', 'This is another test'),
+(27, '2023-06-03', 'Accounting', 50000, 'Debit', 'mmanugue', 'This is a test of the new request ID format\r\n'),
+(28, '2023-06-03', 'Dispatch', 65161, 'Debit', 'mmanugue', 'Test'),
+(29, '2023-06-03', 'Dispatch', 30000, 'Credit', 'mmanugue', 'this is a test'),
+(30, '2023-06-03', 'Dispatch', 30000, 'Credit', 'mmanugue', 'this is a test'),
+(31, '2023-06-03', 'Equipment Lifecycle', 654161, 'Credit', 'mmanugue', 'Test'),
+(32, '2023-06-03', 'Maintenance', 6511, 'Credit', 'mmanugue', 'Test'),
+(33, '2023-06-03', 'Rental and Sales', 65161, 'Credit', 'mmanugue', 'test');
 
 -- --------------------------------------------------------
 
@@ -607,7 +659,15 @@ INSERT INTO `mytoto` (`id`, `date`, `time`, `activity`, `username`) VALUES
 (122, '2023-05-23', '19:47:56', 'Break', 'mmanugue'),
 (123, '2023-05-23', '19:47:58', 'Lunch', 'mmanugue'),
 (124, '2023-05-23', '19:48:02', 'Break', 'mmanugue'),
-(125, '2023-05-23', '19:48:03', 'Time Off', 'mmanugue');
+(125, '2023-05-23', '19:48:03', 'Time Off', 'mmanugue'),
+(126, '2023-05-24', '22:13:16', 'Time On', 'mmanugue'),
+(127, '2023-05-24', '22:13:18', 'Break', 'mmanugue'),
+(128, '2023-05-24', '22:13:19', 'Time On', 'mmanugue'),
+(129, '2023-05-24', '22:13:21', 'Lunch', 'mmanugue'),
+(130, '2023-05-24', '22:13:23', 'Coaching', 'mmanugue'),
+(131, '2023-05-24', '22:13:24', 'Time On', 'mmanugue'),
+(132, '2023-05-24', '22:13:27', 'Break', 'mmanugue'),
+(133, '2023-05-24', '22:13:28', 'Time Off', 'mmanugue');
 
 -- --------------------------------------------------------
 
@@ -640,11 +700,46 @@ INSERT INTO `requests` (`req_id`, `date`, `account`, `amount`, `type`, `encoder`
 (7, '2023-04-18', 'Accounting', 651610, 'Credit', 'mmanugue', 'Pending', 'slidfbsikgbs'),
 (8, '2023-04-18', 'Accounting', 651065161, 'Credit', 'mmanugue', 'Pending', 'asdada'),
 (9, '2023-04-18', 'Accounting', 12983103, 'Credit', 'mmanugue', 'Pending', 'wjkhbfgwklsbrtf'),
-(10, '2023-05-06', 'Accounting', 20000, 'Debit', 'ccagas', 'Pending', 'Ts'),
-(11, '2023-05-17', 'Accounting', 2500000, 'Credit', 'mmanugue', 'Pending', 'this is for the sale of blah blah blah'),
-(12, '2023-05-19', 'Accounting', 123456, 'Credit', 'mmanugue', 'Pending', 'asdsad'),
-(13, '2023-05-21', 'Accounting', 50000, 'Debit', 'mdayao', 'Pending', 'This is a test of the new request ID format\r\n'),
-(14, '2023-05-21', 'Accounting', 1234, 'Credit', 'mdayao', 'Pending', 'This is another test');
+(13, '2023-05-21', 'Accounting', 50000, 'Debit', 'mdayao', 'Approved', 'This is a test of the new request ID format\r\n'),
+(14, '2023-05-21', 'Accounting', 1234, 'Credit', 'mdayao', 'Approved', 'This is another test'),
+(15, '2023-06-03', 'Dispatch', 65161, 'Debit', 'mmanugue', 'Pending', 'Test'),
+(17, '2023-06-03', 'Equipment Lifecycle', 654161, 'Credit', 'mmanugue', 'Pending', 'Test'),
+(19, '2023-06-03', 'Maintenance', 6511, 'Credit', 'mmanugue', 'Pending', 'Test'),
+(21, '2023-06-03', 'Rental and Sales', 65161, 'Credit', 'mmanugue', 'Pending', 'test'),
+(22, '2023-06-03', 'Rental and Sales', 654161, 'Credit', 'mmanugue', 'Pending', 'Test'),
+(24, '2023-04-17', 'Accounting', 10000000, 'Credit', 'mmanugue', 'Pending', 'this is another test'),
+(25, '2023-04-17', 'Accounting', 10000000, 'Credit', 'mmanugue', 'Pending', 'this is another test'),
+(26, '2023-04-17', 'Accounting', 10000000, 'Credit', 'mmanugue', 'Pending', 'this is another test'),
+(27, '2023-04-18', 'Dispatch', 30000, 'Credit', 'mmanugue', 'Pending', 'this is a test'),
+(28, '2023-04-18', 'Maintenance', 10000, 'Credit', 'mmanugue', 'Pending', 'this is another  test'),
+(29, '2023-04-18', 'Rental and Sales', 30000, 'Debit', 'mmanugue', 'Pending', 'this is a test'),
+(30, '2023-04-18', 'Equipment Lifecycle', 30000, 'Dredit', 'mmanugue', 'Pending', 'test'),
+(31, '2023-04-18', 'Accounting', 651610, 'Credit', 'mmanugue', 'Pending', 'slidfbsikgbs'),
+(32, '2023-04-18', 'Accounting', 651065161, 'Credit', 'mmanugue', 'Pending', 'asdada'),
+(33, '2023-04-18', 'Accounting', 12983103, 'Credit', 'mmanugue', 'Pending', 'wjkhbfgwklsbrtf'),
+(34, '2023-05-21', 'Accounting', 50000, 'Debit', 'mdayao', 'Approved', 'This is a test of the new request ID format\r\n'),
+(35, '2023-05-21', 'Accounting', 1234, 'Credit', 'mdayao', 'Approved', 'This is another test'),
+(36, '2023-06-03', 'Dispatch', 65161, 'Debit', 'mmanugue', 'Pending', 'Test'),
+(37, '2023-06-03', 'Equipment Lifecycle', 654161, 'Credit', 'mmanugue', 'Pending', 'Test'),
+(38, '2023-06-03', 'Maintenance', 6511, 'Credit', 'mmanugue', 'Pending', 'Test'),
+(39, '2023-06-03', 'Rental and Sales', 65161, 'Credit', 'mmanugue', 'Pending', 'test'),
+(40, '2023-06-03', 'Rental and Sales', 654161, 'Credit', 'mmanugue', 'Pending', 'Test'),
+(42, '2023-04-18', 'Dispatch', 30000, 'Credit', 'mmanugue', 'Approved', 'this is a test'),
+(43, '2023-04-18', 'Maintenance', 10000, 'Credit', 'mmanugue', 'Pending', 'this is another  test'),
+(44, '2023-04-18', 'Rental and Sales', 30000, 'Debit', 'mmanugue', 'Pending', 'this is a test'),
+(45, '2023-04-18', 'Equipment Lifecycle', 30000, 'Dredit', 'mmanugue', 'Pending', 'test'),
+(46, '2023-06-03', 'Dispatch', 65161, 'Debit', 'mmanugue', 'Denied', 'Test'),
+(47, '2023-06-03', 'Equipment Lifecycle', 654161, 'Credit', 'mmanugue', 'Pending', 'Test'),
+(48, '2023-06-03', 'Maintenance', 6511, 'Credit', 'mmanugue', 'Pending', 'Test'),
+(49, '2023-06-03', 'Rental and Sales', 65161, 'Credit', 'mmanugue', 'Pending', 'test'),
+(50, '2023-06-03', 'Rental and Sales', 654161, 'Credit', 'mmanugue', 'Pending', 'Test'),
+(51, '2023-04-18', 'Dispatch', 30000, 'Credit', 'mmanugue', 'Approved', 'this is a test'),
+(52, '2023-04-18', 'Maintenance', 10000, 'Credit', 'mmanugue', 'Denied', 'this is another  test'),
+(53, '2023-04-18', 'Rental and Sales', 30000, 'Debit', 'mmanugue', 'Denied', 'this is a test'),
+(55, '2023-06-03', 'Dispatch', 65161, 'Debit', 'mmanugue', 'Approved', 'Test'),
+(56, '2023-06-03', 'Equipment Lifecycle', 654161, 'Credit', 'mmanugue', 'Approved', 'Test'),
+(57, '2023-06-03', 'Maintenance', 6511, 'Credit', 'mmanugue', 'Approved', 'Test'),
+(58, '2023-06-03', 'Rental and Sales', 65161, 'Credit', 'mmanugue', 'Approved', 'test');
 
 -- --------------------------------------------------------
 
@@ -726,8 +821,7 @@ INSERT INTO `users` (`id`, `emp_id`, `fullname`, `username`, `password`, `role`,
 (30, 2023200, 'Gilbert Garcia', 'ggarcia', '1234', 'admin', 'ggarcia@ironclad.ph', 'Maintenance', '65196161', 'Pampanga'),
 (31, 2023006, 'Nikka Virginia Esguerra', 'nesguerra', '1234', 'admin', 'nesguerra@ironclad.ph', 'Accounting', '9175456564', 'Quezon City'),
 (32, 2023007, 'Charish Hill', 'chill', '1234', 'admin', 'chill@ironclad.ph', 'Accounting', '9175456565', 'Makati City'),
-(33, 2023008, 'Marinel Dayao', 'mdayao', '1234', 'admin', 'mdayao@ironclad.ph', 'Accounting', '9175456566', 'Pasay City'),
-(34, 2023009, 'Lesley Anne Ferrer', 'lferrer', '1234', 'admin', 'lferrer@ironclad.ph', 'Accounting', '9175456567', 'Marikina City');
+(33, 2023008, 'Marinel Dayao', 'mdayao', '1234', 'admin', 'mdayao@ironclad.ph', 'Accounting', '9175456566', 'Pasay City');
 
 --
 -- Indexes for dumped tables
@@ -783,31 +877,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `audit`
 --
 ALTER TABLE `audit`
-  MODIFY `audit_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=395;
+  MODIFY `audit_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=439;
 
 --
 -- AUTO_INCREMENT for table `journal`
 --
 ALTER TABLE `journal`
-  MODIFY `journal_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `journal_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `mytoto`
 --
 ALTER TABLE `mytoto`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `req_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `req_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `reset`
 --
 ALTER TABLE `reset`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `salary`

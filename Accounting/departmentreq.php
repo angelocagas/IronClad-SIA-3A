@@ -180,8 +180,7 @@ if (!isset($admin)) {
               <ul class="menu-sub">
               <li class="menu-item active">
                   <a href="accountingreq.php" class="menu-link">
-                    <div data-i18n="Without navbar">Accounting&nbsp;<span class="badge badge-center rounded-pill bg-danger" ><?php $numreq = $conn->query("SELECT COUNT(*) from `requests` WHERE `account` = 'accounting' and `status` = 'denied'")->fetchColumn();
-                                echo $numreq ?></span></div>
+                    <div data-i18n="Without navbar">Accounting</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -356,7 +355,7 @@ $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Accounting Department Pending Requests</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Department Pending Requests</h4>
 
               <form action="accountingnew.php" method="post">
                   <!-- Vertically Centered Modal -->
@@ -503,12 +502,13 @@ $fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
                         <th>Encoder</th>
                         <th>Status</th>
                         <th>Description</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php
-
-$query = $conn->prepare("SELECT * FROM `requests` WHERE `account` LIKE '%accounting%' AND (`status` LIKE '%pending%' OR `status` = 'denied')");
+// change LIKE to appropriate department
+$query = $conn->prepare("SELECT * FROM `requests` WHERE (`status` LIKE '%pending%' OR `status` = 'denied')");
 $query->execute();
 while ($row = $query->fetch()) {
     ?>
@@ -529,6 +529,20 @@ if ($row['status'] === 'denied') {
     }
     ?></td>
         <td><?=$row['description']?></td>
+        <td>
+            <?php if ($row['status'] !== 'denied' && $row['status'] !== 'approved') {?>
+                <div class="dropdown">
+                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                    <a class="dropdown-item" href="deletereq.php?req_id=<?=$row['req_id']?>" onclick="confirmDelete('<?=$row['req_id']?>')">
+                      <i class="bx bx-trash me-1"></i> Delete
+                    </a>
+                    </div>
+                </div>
+            <?php }?>
+        </td>
     </tr>
     <?php
 }

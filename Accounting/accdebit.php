@@ -384,15 +384,10 @@ if (!isset($admin)) {
                   </ul>
                   <div class="row">
                   <div class="col-md-6 col-xl-4">
-                  <div class="card shadow-none bg-transparent border border-danger mb-3">
-                    <div class="card-body">
-                      <h5 class="card-title">Expenses</h5>
-                      <p class="card-text">₱ <?php $credit = $conn->query("SELECT SUM(`amount`) from `journal` WHERE `account` = 'accounting' and `type` = 'debit'")->fetchColumn();
-                      echo $credit ?></p>
-                    </div>
-                  </div>
+                  <div class="alert alert-danger" role="alert">Expenses ₱ <?php $debit = $conn->query("SELECT SUM(`amount`) from `journal` WHERE `account` = 'accounting' and `type` = 'debit'")->fetchColumn();
+                  echo $debit ?></div>
                 </div>
-</div>
+            </div>
 <form method=POST action="">
                 <div class="mb-3 row">
                         <label for="html5-date-input" class="col-md-2 col-form-label">From Date</label>

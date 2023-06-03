@@ -538,6 +538,9 @@ if ($row['status'] === 'denied') {
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="approve.php?req_id=<?=$row['req_id']?>"><i class='bx bx-check'></i> Approve</a>
                         <a class="dropdown-item" href="deny.php?req_id=<?=$row['req_id']?>"><i class='bx bx-x'></i> Deny</a>
+                        <a class="dropdown-item" href="accdelreq.php?req_id=<?=$row['req_id']?>" onclick="confirmDelete('<?=$row['req_id']?>')">
+                      <i class="bx bx-trash me-1"></i> Delete
+                    </a>
                     </div>
                 </div>
             <?php }?>
