@@ -180,7 +180,9 @@ if (!isset($admin)) {
               <ul class="menu-sub">
               <li class="menu-item active">
                   <a href="accountingreq.php" class="menu-link">
-                    <div data-i18n="Without navbar">Accounting</div>
+                    <!-- Please edit according to department -->
+                    <div data-i18n="Without navbar">Accounting <span class="badge badge-center rounded-pill bg-danger" ><?php $numreq = $conn->query("SELECT COUNT(*) from `requests` WHERE `account` = 'accounting' and `status` = 'pending' or `status` = 'denied'")->fetchColumn();
+                                echo $numreq ?></span></div>
                   </a>
                 </li>
                 <li class="menu-item">
