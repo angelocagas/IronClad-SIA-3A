@@ -460,7 +460,7 @@ if (!isset($admin)) {
                                   </div>
                                   <div class="row">
                                 <div class="mb-3">
-                                  <label for="encoder" class="form-label">Encoder</label>
+                                  <label for="encoder" class="form-label">Approved By</label>
                                     <div class="col-md-12">
                                     <input class="form-control" type="text" value="<?= $fetch_profile['username']; ?>" id="encoder" name="encoder" readonly/>
                                     </div>

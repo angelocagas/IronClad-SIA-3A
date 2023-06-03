@@ -19,7 +19,7 @@ if (isset($_POST['search'])) {
           <th>Account</th>
           <th>Amount</th>
           <th>Type</th>
-          <th>Encoder</th>
+          <th>Approved By</th>
           <th>Description</th>
           <th>Action</th>
         </tr>
@@ -84,7 +84,7 @@ if (isset($_POST['search'])) {
           <th>Account</th>
           <th>Amount</th>
           <th>Type</th>
-          <th>Encoder</th>
+          <th>Approved By</th>
           <th>Description</th>
           <th>Action</th>
         </tr>

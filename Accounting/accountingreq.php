@@ -508,7 +508,7 @@ $fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
                     <tbody>
                     <?php
 
-$query = $conn->prepare("SELECT * FROM `requests` WHERE `account` LIKE '%accounting%' AND (`status` LIKE '%pending%' OR `status` = 'denied' OR `status` = 'approved')");
+$query = $conn->prepare("SELECT * FROM `requests` WHERE `account` LIKE '%accounting%' AND (`status` LIKE '%pending%' OR `status` = 'denied')");
 $query->execute();
 while ($row = $query->fetch()) {
     ?>
