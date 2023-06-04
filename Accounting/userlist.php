@@ -303,6 +303,7 @@ if (!isset($admin)) {
                     aria-label="Search..."
                     name="keyword"
                     value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>"
+                    autocomplete="off"
                   />
                   <div class="btn-group" role="group">
                               <button class="btn btn-secondary" name="search">Search</button>
@@ -432,6 +433,7 @@ if (!isset($admin)) {
                                       placeholder=""
                                       name="fullname"
                                       required
+                                      autocomplete="off"
                                     />
                                   </div>
                                 </div>
@@ -444,6 +446,7 @@ if (!isset($admin)) {
                                       placeholder="First Name's Initial + Complete Last Name"
                                       name="username"
                                       required
+                                      autocomplete="off"
                                     />
                                   </div>
                                 </div>
@@ -456,6 +459,7 @@ if (!isset($admin)) {
                                       placeholder="****"
                                       name="pass"
                                       required
+                                      autocomplete="off"
                                     />
                                   </div>
                                 </div>
@@ -468,13 +472,14 @@ if (!isset($admin)) {
                                       placeholder="****"
                                       name="cpass"
                                       required
+                                      autocomplete="off"
                                     />
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="nameWithTitle" class="form-label">Role</label>
-                                    <select id="role" class="select2 form-select" name="role" required>
+                                    <select id="role" class="select2 form-select" name="role" required autocomplete="off">
                                     <option>Select Role</option>  
                                     <option value="admin">Admin</option>
                                     <option value="user">User</option>  
@@ -491,6 +496,7 @@ if (!isset($admin)) {
                                       name="department"
                                       value="Accounting"
                                       readonly
+                                      autocomplete="off"
                                     />
                                   </div>
                                 </div>
@@ -503,6 +509,7 @@ if (!isset($admin)) {
                                       placeholder="username@ironclad.ph"
                                       name="email"
                                       required
+                                      autocomplete="off"
                                     />
                                   </div>
                                 </div>
@@ -516,6 +523,7 @@ if (!isset($admin)) {
                                       placeholder="9#########"
                                       name="phone"
                                       required
+                                      autocomplete="off"
                                     />
                                   </div>
                                 </div>
@@ -528,6 +536,8 @@ if (!isset($admin)) {
                                       class="form-control"
                                       placeholder=""
                                       name="address"
+                                      autocomplete="off"
+                                      required
                                     />
                                   </div>
                                 </div>

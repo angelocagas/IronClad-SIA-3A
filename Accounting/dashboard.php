@@ -381,8 +381,8 @@ if (!isset($admin)) {
                               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId">
                                 <a class="dropdown-item" href="accountingreq.php">Accounting &nbsp;<span class="badge badge-center rounded-pill bg-danger" ><?php $numreq = $conn->query("SELECT COUNT(*) from `requests` WHERE `account` = 'accounting' and `status` = 'pending'")->fetchColumn();
                                 echo $numreq ?></span></a>
-                                <a class="dropdown-item" href="dispatchreq.php">Dispatch &nbsp;<span class="badge badge-center rounded-pill bg-danger" ><?php $numreq = $conn->query("SELECT COUNT(*) from `requests` WHERE `account` = 'dispatch' and `status` = 'pending'")->fetchColumn();
-                                echo $numreq ?></span></a>
+                                <a class="dropdown-item" href="dispatchreq.php">Dispatch &nbsp;</a><span class="badge badge-center rounded-pill bg-danger" ><?php $numreq = $conn->query("SELECT COUNT(*) from `requests` WHERE `account` = 'dispatch' and `status` = 'pending'")->fetchColumn();
+                                echo $numreq ?></span>
                                 <a class="dropdown-item" href="equiplifereq.php">Equipment Lifecycle &nbsp;<span class="badge badge-center rounded-pill bg-danger" ><?php $numreq = $conn->query("SELECT COUNT(*) from `requests` WHERE `account` = 'equipment lifecycle' and `status` = 'pending'")->fetchColumn();
                                 echo $numreq ?></span></a>
                                 <a class="dropdown-item" href="maintenancereq.php">Maintenance &nbsp;<span class="badge badge-center rounded-pill bg-danger" ><?php $numreq = $conn->query("SELECT COUNT(*) from `requests` WHERE `account` = 'maintenance' and `status` = 'pending'")->fetchColumn();

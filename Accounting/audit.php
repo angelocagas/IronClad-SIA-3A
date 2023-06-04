@@ -301,6 +301,7 @@ if (!isset($admin)) {
                     aria-label="Search..."
                     name="keyword"
                     value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>"
+                    autocomplete="off"
                   />
                   <div class="btn-group" role="group">
                               <button class="btn btn-secondary" name="search">Search</button>

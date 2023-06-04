@@ -177,14 +177,14 @@ if (isset($_POST['submit'])) {
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" name="username" id="username" class="form-control"
-                        placeholder="Enter your username" required>
+                        placeholder="Enter your username" required autocomplete="off">
                 </div>
                 <div class="form-group password-container">
                     <label for="pass" class="form-label">Password</label>
                     <div class="password-input-container">
                         <input type="password" name="pass" id="password" class="form-control"
                             placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                            required>
+                            required autocomplete="off">
                         <span class="toggle-password">
                             <i class="fas fa-eye"></i>
                         </span>

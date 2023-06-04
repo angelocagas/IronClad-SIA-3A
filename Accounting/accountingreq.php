@@ -406,7 +406,7 @@ $fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
                                    <div class="mb-3">
                                   <label for="html5-date-input" class="form-label">Date</label>
                                     <div class="col-md-12">
-                                    <input class="form-control" type="date" value="<?php echo date("Y-m-d"); ?>" id="html5-date-input" name="date"/>
+                                    <input class="form-control" type="date" value="<?php echo date("Y-m-d"); ?>" id="html5-date-input" name="date" required/>
                                     </div>
                                  </div>
                                  </div>
@@ -415,7 +415,7 @@ $fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
                                  <div class="col mb-3">
                                    <div class="mb-3">
                                     <label for="account" class="form-label">Account</label>
-                                    <select id="account" class="form-select" name="account">
+                                    <select id="account" class="form-select" name="account" required>
                                     <option>Select Type</option>
                                     <option value="Accounting">Accounting</option>
                                     <option value="Dispatch" disabled>Dispatch</option>
@@ -430,7 +430,7 @@ $fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
                                 <div class="mb-3">
                                   <label for="amount" class="form-label">Amount</label>
                                     <div class="col-md-12">
-                                    <input class="form-control" type="number" value="" placeholder="Amount in PHP" id="amount" name="amount"/>
+                                    <input class="form-control" type="number" value="" placeholder="Amount in PHP" id="amount" name="amount" autocomplete="off" required/>
                                     </div>
                                  </div>
                                 </div>
@@ -438,7 +438,7 @@ $fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
                                  <div class="col mb-3">
                                    <div class="mb-3">
                                     <label for="type" class="form-label">Type</label>
-                                    <select id="type" class="form-select" name="type">
+                                    <select id="type" class="form-select" name="type" required>
                                     <option>Select Type</option>
                                     <option value="credit">Credit</option>
                                     <option value="debit">Debit</option>
@@ -458,7 +458,7 @@ $fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
                                  <div class="col mb-3">
                                    <div class="mb-3">
                                     <label for="status" class="form-label">Status</label>
-                                    <select id="type" class="form-select" name="status">
+                                    <select id="type" class="form-select" name="status" required>
                                     <option>Select Status</option>
                                     <option value="pending">Pending</option>
                                     </select>
@@ -469,7 +469,7 @@ $fetch_req = $select_req->fetch(PDO::FETCH_ASSOC);
                                   <div class="col mb-3">
                                   <div>
                                   <label for="description" class="form-label">Description</label>
-                                  <textarea class="form-control" id="description" rows="5" name="description"></textarea>
+                                  <textarea class="form-control" id="description" rows="5" name="description" required autocomplete="off"></textarea>
                                   </div>
                                   </div>
                                 </div>

@@ -303,6 +303,7 @@ if (!isset($admin)) {
                     aria-label="Search..."
                     name="keyword"
                     value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>"
+                    autocomplete="off"
                   />
                   <div class="btn-group" role="group">
                               <button class="btn btn-secondary" name="search">Search</button>
@@ -423,7 +424,7 @@ if (!isset($admin)) {
                                    <div class="mb-3">
                                   <label for="html5-date-input" class="form-label">Date</label>
                                     <div class="col-md-12">
-                                    <input class="form-control" type="date" value="<?php echo date("Y-m-d"); ?>" id="html5-date-input" name="date"/>
+                                    <input class="form-control" type="date" value="<?php echo date("Y-m-d"); ?>" id="html5-date-input" name="date" required/>
                                     </div>
                                     </div>
                                  </div>
@@ -432,7 +433,7 @@ if (!isset($admin)) {
                                   <div class="col mb-3">
                                    <div class="mb-3">
                                     <label for="defaultSelect" class="form-label">Account</label>
-                                    <select id="defaultSelect" class="form-select" name="account">
+                                    <select id="defaultSelect" class="form-select" name="account" required>
                                     <option>Select Account</option>
                                     <option value="Accounting">Accounting</option>
                                     <option value="Dispatch">Dispatch</option>
@@ -447,7 +448,7 @@ if (!isset($admin)) {
                                  <div class="mb-3">
                                   <label for="amount" class="form-label">Amount</label>
                                     <div class="col-md-12">
-                                    <input class="form-control" type="number" value="" placeholder="Amount in PHP" id="amount" name="amount"/>
+                                    <input class="form-control" type="number" value="" placeholder="Amount in PHP" id="amount" name="amount" autocomplete="off" required/>
                                     </div>
                                  </div>
                                  </div>
@@ -455,7 +456,7 @@ if (!isset($admin)) {
                                  <div class="col mb-3">
                                    <div class="mb-3">
                                     <label for="type" class="form-label">Type</label>
-                                    <select id="type" class="form-select" name="type">
+                                    <select id="type" class="form-select" name="type" required>
                                     <option>Select Type</option>
                                     <option value="Credit">Credit</option>
                                     <option value="Debit">Debit</option>
@@ -475,7 +476,7 @@ if (!isset($admin)) {
                                   <div class="col mb-3">
                                   <div>
                                   <label for="description" class="form-label" >Description</label>
-                                  <textarea class="form-control" id="description" rows="5" name="description"></textarea>
+                                  <textarea class="form-control" id="description" rows="5" name="description" autocomplete="off" required></textarea>
                                   </div>
                               </div>
                               </div>

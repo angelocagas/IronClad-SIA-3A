@@ -146,6 +146,8 @@
                     name="username"
                     placeholder=""
                     autofocus
+                    required
+                    autocomplete="off"
                   />
                 </div>
                 <input type="submit" button class="btn btn-primary d-grid w-100" name="submit"></button>
